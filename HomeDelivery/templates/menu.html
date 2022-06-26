@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+    {% static "image" as baseUrl %}
+<!--===================================================================Navigation slider layout close ================================================ -->
+<div class="container-fluid mt-5">
+    	<div id="parent" class="row align-content-center">
+			<img src="{{baseUrl}}/{{menuslider.img}}" class="img-fluid">
+    			<div id="child" class="container" style=" margin-left:5%; margin-top:5%;">
+                <div class="row">
+                <div id="gallery" class="col-md-12 mt-5">
+                 <h1 style="color:#FFFFFF; font-family: cookie,cursive; font-weight: 700;">Menu</h1>
+                 <h4 style="font-family: poppins;color:#FFFF00;text-transform: uppercase;"> Choose items from our Menu</h4>
+                </div>
+             </div>
+         </div>
+    </div>
+</div>
+<!-- =========================================================== slider navigation layout close ======================================================-->
+<div id="menulist" class="container-fluid">
+	<div id="menu" class="row" style=" position:relative;">
+    <ul class="mr-auto" style="list-style:none;">
+    <div>
+       <button class="btn float-left" type="button"><a href="{% url 'nindian' %}" style="color:#ffffff">North Indian</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'chinese' %}" style="color:#ffffff">Chinese</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'biryani' %}" style="color:#ffffff">Biryani</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'mithai' %}" style="color:#ffffff">Mithai</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'pizza' %}" style="color:#ffffff">Pizza</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'desserts' %}" style="color:#ffffff"> Desserts</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'burger' %}" style="color:#ffffff">Burger</a></button>
+        <button class="btn float-left" type="button"><a href="{% url 'sindian' %}" style="color:#ffffff">South Indian</a></button>
+    </div>
+    </ul>
+    </div>
+</div>
+<!--============================================================= menu button close ===============================================================-->
+<div class="container-fluid mb-5" style=" background-color:#1abc9c; padding:10px; margin-top:0px;">
+<div class="row ">
+<div class="col-md-5 ml-auto" ><h3 style="font-weight:700; font-size:24px; color:#FFFFFF;">{{offer.name}}</h3>
+	<footer class="blockquote-footer"><a href="#" style="color:#FFFFFF;">terms & Conditions Apply</a></footer>
+</div><!-- discription table-->
+<div class="col-md-3">
+<button class="btn" type="button" style="background-color:#FFFFFF; width:200px; border-radius:23px;font-weight:700; font-size:24px;">Order Now</button>
+</div><!--discription data-->
+</div><!--Discription list close-->
+</div>
+{% if listname %}
+<div align="center">
+    <h1><strong>{{listname}}</strong></h1>
+</div>
+{% endif %}
+
+<div class="container">
+	<div class="row">
+		{% for item in menus %}
+		<div class="col-sm-2 col-sm-2">
+        	<div>
+       			 <img src="{{baseUrl}}/{{item.img}}" class="img-fluid "></div>
+            <form action="additem" method="post">
+                {% csrf_token %}
+                <h6 style="float:right; color:red; font-size:18px; font-family:ppins;">Rs.{{item.price}}</h6>
+					<h5 style="color:#db493c; margin-top:20px;font-weight:500;">{{item.name}}</h5>
+                    <div style="color:black; font-weight: 200;">{{item.det}}</div>
+            <button id="btno"  type="submit" class="btn btn-warning mb-3" value={{user}}>Order Now</button>
+            <label for="cpass" style=" font-size:12px;">Qty.</label>
+            <input type="text"  name="qty" id="cpass"  placeholder="Quantity" onkeyup="menuonly(this)" required style="width: 50px; font-size:10px;">
+                <input name="item_id" type="hidden" value="{{ item.name }}" class="hidden"  required>
+				  <input name="price_id" type="hidden" value="{{ item.price }}" class="hidden" required>
+            </form>
+    </div><!--column close-->
+		{% endfor %}
+    </div><!-- row close-->
+</div><!-- container close -->
+<!--====================================================================Menu close =============================================-->
+
+
+
+<!-- =================================================================== order step =================================================-->
+<div class="container-fluid mt-5 mb-5 jumbotron">
+<div class="row mt-5">
+<div class="col-lg-12 col-md-12">
+<h5 align="center" style="font-family: poppins;color:#1abc9c;text-transform: uppercase; padding:0px; margin-top:20px; margin-bottom:0PX;">Steps of order
+</h5>
+<h1 align="center" style="font-size:50px; color:#FF0000; margin-top:10px; font-family: cookie,cursive; font-weight: 700; padding:0px;">How we work</h1>
+</div>
+</div>
+<div class="container">
+<div class="row mt-5">
+<div class="col-sm-4" style="padding-top:10px;">
+<img src="{% static 'image/logo/route.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+<H5 style="font-weight: 700; font-weight:700;">1. SELECT YOUR LOCATION</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change. Collaboratively morph cross-unit functionalities.</span>
+</div><!-- column close -->
+<div class="col-sm-4" style="padding-top:10px">
+<img src="{% static 'image/logo/shop.svg' %}" class="img-fluid mb-4" height="50px" width="70px" >
+<H5 style="font-weight: 700; font-weight:700;">2. CHOOSE YOUR FOOD</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change. Collaboratively morph cross-unit functionalities.</span>
+</div><!-- column close -->
+<div class="col-sm-4" style="padding-top:10px;">
+<img  src="{% static 'image/logo/deliveryvan.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+<H5 style="font-weight: 700; font-weight:700;">3. YOUR ITEM IS ON THE WAY</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change. Collaboratively morph cross-unit functionalities.</span>
+</div><!-- column close -->
+</div><!-- work row close-->
+</div><!-- work container close-->
+</div>
+
+{% endblock %}

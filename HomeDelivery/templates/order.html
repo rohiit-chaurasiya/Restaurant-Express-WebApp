@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% static "image" as baseUrl %}
+
+<div  style="position:relative;margin-top:90px;height:auto;width:auto;" align="center">
+    {% if finalorder %}
+    <h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte;">{{finalorder}}</h1>
+    {% else %}
+    <h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte;">Your Cart List </h1>
+    {% endif %}
+    {% if cart1 %}
+    <div class="row " align="center">
+    <div class="col-sm-12">
+    <table class="table table-info border">
+        <thead>
+        <tr class="table-danger">
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">Status</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for oitem in orders %}
+            <tr>
+            <form action="itemremove" method="post">
+                {% csrf_token %}
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td scope="row">{{oitem.item_name}}</td>
+            <td>{{oitem.qty}}</td>
+            <td>{{oitem.price}}</td>
+            <td>&nbsp;</td>
+            <td>{{oitem.status}}</td>
+                {% if finalorder %}
+                {% else %}
+                <input name="item_id" type="hidden" value="{{oitem.id}}" class="hidden"  required>
+                <td><button class="btn btn-outline-warning " type="submit" style="border-radius:20px; font-weight: 500; font-size:16px;
+                color:#ffffff">Item Remove</button></td>
+                {% endif %}
+            </form>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+
+<div align="center">
+    {% if finalorder  %}
+    <h1 align="center" style="margin-top:70px;color:red; font-size:50px; font-family:Forte;">Thank You </h1>
+    {% else %}
+    <button class="btn btn-danger " type="button" style=" margin-top:60px;border-radius:30px;font-weight: 700; font-size:25px;">
+        <a href="{% url 'orderconfirm' %}" style="color:#ffffff;text-decoration: none;">Order Confirm</a></button>
+    {% endif %}
+</div>
+{% else %}
+<div style="margin-top:0px;" align="center">
+<img src="{{baseUrl}}/{{ucart.img}}" class="img-fluid">
+    <h1 align="center" style="color:red; font-size:50px;"> Your Cart is Emapty!</h1>
+    <h4>Add items to it now.</h4>
+    <button class="btn" type="button" style=" margin-top:10px; border-radius:50px; font-weight:600; font-size:30px; background-color:blue;">
+        <a href="{% url 'menu' %}" style="color:#ffffff;text-decoration: none;">Order Now</a></button>
+</div>
+{% endif %}
+    {% endblock %}

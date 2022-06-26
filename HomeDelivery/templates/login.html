@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% static 'image' as baseUrl %}
+
+
+<div  class="container-fluid img-fluid" style="position:relative; background:url({{baseUrl}}/{{imglogin.img}}); margin-top:100px; height:auto;">
+<div class="container-fluid " style="position:relative;">
+	<form action="check"  method="post">
+        {% csrf_token %}
+        <div class="col-md-5">
+            <h1 align="center" style="color:black; font-size:50px;"><strong>Welcome</strong></h1>
+            <h6 class="mb-4" align="center">To Login Please Enter your Username and Password</h6>
+        </div>
+    <div class="form-row" align="center">
+    	<div class="form-group col-md-5" align="center">
+        <label for="username">User Name</label>
+        <input  type="text" class="form-control" id="username" name="username" placeholder="@Username" onkeyup="usernameonly(this)" required>
+        </div>
+        </div>
+    <div class="form-row">
+    	<div class="form-group col-md-5" align="center">
+        <label for="pass1">Password</label>
+        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password" required>
+        </div>
+    </div>
+    <div class="form-row mt-5">
+    	<div class="form-group col-md-5" align="center">
+            <!--<button type="submit" class="btn btn-block alert-primary" id="submit"><a>Login</a></button>-->
+            <button class="btn" type="submit" id="submit" style="margin:25px; background-color:#fc8019;border-radius:23px;font-weight:700; font-size:24px; color:#ffffff;">Login Now</button>
+            <button class="btn" type="button" style="margin:25px; background-color:#ffffff;border-radius:23px;font-weight: 700; font-size:24px;">
+                <a href="{% url 'add' %}" style="color:black">Create Account</a></button>&nbsp
+            <h3  style="font-size: 22px; font-weight: 700;" align="center">Or</h3>&nbsp
+        <i style="color:blue; font-size:35px;" class="fab fa-facebook" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i style="color:blue; font-size:35px;" class="fab fa-google" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
+            <i style="color:blue; font-size:35px;" class="fab fa-twitter" ></i>
+        </div>
+    </div>
+	</form>
+</div><!-- second container close -->
+</div>
+<!-- ==================================================== contact section layout close  ================================================================-->
+{% endblock %}

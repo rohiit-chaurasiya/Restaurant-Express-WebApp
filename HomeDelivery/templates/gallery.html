@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% static 'image' as baseUrl %}
+<div  class="container-fluid mt-5">
+    	<div id="parent" class="row align-content-center"  style="background-size: cover; padding: 0px 0px 0px; background-position: 0px -157.967px;">
+			<img src="{{baseUrl}}/{{gallery.img}}" class="img-fluid" width="100%">
+    			<div id="child" class="container" style=" margin-left:5%; margin-top:10%;">
+                <div class="row">
+                <div id="gallery" class="col-md-12 col-lg-12" align="center">
+                <h1 style="color:#FFFFFF; font-family: cookie,cursive; font-weight: 700;">{{gallery.name}}</h1>
+                <h4 style="font-family: poppins;color:#FFFF00;text-transform: uppercase;">{{gallery.det}}</h4>
+                </div>
+             </div>
+         </div>           
+    </div>
+</div>
+<!--=========================================================== slider navigation layout close ===========================================-->
+
+
+<!--============================================================= Gallery open==================================================-->
+<div class=" container">
+	<div class="row justify-content-md-center mt-5">
+		{% for gallery in gallerys %}
+		<div class="col-md-4 col-lg-4 mt-5 mr-5">
+        	<button type="button" style="background-color: #FFFFFF;">
+        		<img src="{{baseUrl}}/{{gallery.img}}" class="img-fluid">
+        	</button>
+			<h2 align="center" style="color:#db493c; margin-top:30px; font-weight:700">
+			{{gallery.name}}
+			</h2>
+		</div><!--column close-->
+		{% endfor %}
+    </div><!-- row close-->
+</div><!-- container close -->
+
+{% endblock %}

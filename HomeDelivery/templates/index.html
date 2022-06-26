@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+<!--============================================================== Navigation , slider layout ======================================-->
+{% block content %}
+{% load static %}
+    {% static "image" as baseUrl %}
+{{otherpage}}
+<div style="position:relative;">
+<div class="carousel slide" data-ride="carousel" id="run">
+<ol class="carousel-indicators">
+<li data-slide-to="0" class="active"></li>
+<li data-slide-to="1"></li>
+<li data-slide-to="2"></li>
+<li data-slide-to="3"></li>
+</ol>
+<div class="carousel-inner">
+	{% for slider in sliders %}
+<div class="carousel-item ">
+<div>
+<img src="{{baseUrl}}/{{slider.img}}" class="img-fluid">
+</div>
+<!--     <div class="carousel-caption"><p>Traning</p></div>     -->
+</div>   <!--carousel item close-->
+	{% endfor %}
+<div class="carousel-item active ">
+<div>
+<img src="{% static 'image/slider/test3.jpg' %}" class="img-fluid">
+</div>
+<!--   <div class="carousel-caption"><p>Traning</p></div>   -->
+</div>
+<a href="#run" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+<a href="#run" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+</div><!-- carousel inner close -->
+</div> <!--carousel slider close-->
+</div>
+
+<!--<div  class="img-fluid" style="position: absolute; left: 0; width: 100%; z-index: 3; background: url('image/sketch.png') repeat center bottom; background-size: auto 100%; height: 80px; margin-top: 0px;">-->
+
+<!--===================================================================Navigation slider layout close ================================================ -->
+
+<!--========================================================== How we work section===================================================================== -->
+<div class="container-fluid">
+<dl class="row mt-5">
+<dt class="col-3">  {{off.name}} </dt><!-- discription table-->
+<dd class="col-9"> {{off.det}} </dd><!-- discription data-->
+</dl><!-- Discription list close-->
+</div>
+
+<div class="container  mb-5">
+<div class="row">
+<div class="col-lg-6 col-md-6">
+<h1 style="font-size:50px; color:#FF0000; margin-top:10px; font-family: cookie,cursive; font-weight: 700; padding:0px;">How we work</h1>
+</div>
+</div>
+<div class="container">
+<div class="row mt-5">
+<div class="col-sm-4" style="padding-top:10px;">
+<img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+<H5 style="font-weight: 700; font-weight:700;"> FOOD SERVED HOT</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Always food server hot.</span>
+</div><!-- column close -->
+<div class="col-sm-4" style="padding-top:10px">
+<img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px" >
+<H5 style="font-weight: 700; font-weight:700;">AMPLE OPTIONS</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Many Options </span>
+</div><!-- column close -->
+<div class="col-sm-4" style="padding-top:10px;">
+<img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+<H5 style="font-weight: 700; font-weight:700;">IN-HOUSE BREWERY</H5>
+<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Brewery House</span>
+</div><!-- column close -->
+</div><!-- work row close-->
+</div><!-- work container close-->
+</div>
+
+<!--========================================================= First menu layout=====================================================-->
+
+<div class="container-fluid mt-5">
+	<div  class="container-fluid img-fluid" style="position:relative; background:url({{baseUrl}}/{{fmenu.img}}); height:auto; width:100%">
+			<h1>&nbsp;</h1>
+			<h1>&nbsp;</h1>
+    			<div class="container" style="   position:relative;" align="right">
+                    <h5 class="primary ml-4" style="font-size: 30px;color: #AAA;">Tasty Healthy</h5>
+            			<h3 style="font-family: cookie,cursive;font-weight: 400; font-size:45px;">Our Food Menu</h3>
+					<h1>&nbsp;</h1>
+            	</div>
+		</div>
+	<div class="row">
+          <div class="col-lg-7 col-md-7" style=" background-color:#f8f9fa;">
+              <div class="menu">
+				  {% for item in items %}
+               	  <div class="btnn">
+                   	  <span>
+                   	    <img src="{{baseUrl}}/{{item.img}}" class="img-fluid">
+						  <div style="clear:both">
+					  <h6 style="float:left">{{item.name}}</h6>
+			            <h6 style="float:right; color:red; font-size:18px; font-family:ppins; ">Rs.{{item.price}}</h6>&nbsp;
+						  </div>
+						  </span>
+				  </div>
+				  {% endfor %}
+                    <button class="btn btn-danger " type="button" style="margin:25px; border-radius:23px;font-weight: 700; font-size:24px;"><a href="{% url 'menu' %}" style="color:#ffffff"> See all menu</a></button>
+             </div>                               
+          </div>
+          <div class="col-lg-5 col-md-5" style="padding:0px; margin-top:6%; position:relative;" >
+			  <form action="additem"  method="post">
+                {% csrf_token %}
+            	<img style="padding:40px" src="{{baseUrl}}/{{mitem1.img}}" class="img-fluid" name="img">
+				  <p style="color:red; font-size:45px; padding-right:40px; font-family:ppins; float:right;">Rs.{{mitem1.price}}</p>
+                <h2 style="padding-left:50px;" class="secondary">{{mitem1.name}}</h2>
+
+                <div  style="font-family:ppins; color:#bbb; text-transform:uppercase; letter-spacing:2px; padding-left:50px;"><p>
+					{{mitem1.det}}</p>
+                </div>
+				  <input name="item_id" type="hidden" value="{{ mitem1.name }}" class="hidden"  required>
+				  <input name="price_id" type="hidden" value="{{ mitem1.price }}" class="hidden" required>
+				  <label for="cpass" style=" font-size:15px; padding-left:50px;">Quantity</label>
+				  <input type="text"  name="qty" id="cpass"  placeholder="Quantity" onkeyup="menuonly(this)" required style="width: 50px; font-size:10px;">
+              <button type="submit"  class="btn btn-success" style="margin-left:50px;"  >Buy Now</button>
+			  </form>
+        </div>
+   </div>         
+</div>
+
+<!-- ==================================================== first Menu  layout close =================================================================-->
+
+<!-- ====================================================features open =============================================================================-->
+<div class=" container">
+	<div class="row mt-5 ">
+		{% for feature in features %}
+		<div class="col-md-4 col-lg-4 mt-5 ">
+        	<button type="button" style="background-color: #FFFFFF; border:none;">
+        <img src="{{baseUrl}}/{{feature.img}}" class="img-fluid"></button>
+			<h5 style="color:#db493c; margin-top:30px;">
+			{{feature.name}}
+			</h5><br/>
+				<div style="font-family: poppins;color: #bbb;text-transform: uppercase;font-weight: 400;letter-spacing: 2px;">
+				{{feature.det}}
+ 				</div>
+					<footer class="blockquote-footer">Here<cite title="source-title">CSE</cite>
+                    </footer>
+		</div><!--column close-->
+		{% endfor %}
+
+</div><!-- row close-->
+</div><!-- container close -->
+<!-- ==================================================== DETAILS CLOSE ===========================================================================-->
+
+<!-- ==================================================== Second menu layout =====================================================================-->
+<div class="container-fluid mt-5">
+    	<div  class="container-fluid img-fluid" style="position:relative; background:url({{baseUrl}}/{{smenu.img}}); height:auto; width:100%">
+			<!--<img src="{{baseUrl}}/{{smenu.img}}" class="img-fluid">-->
+			<h1>&nbsp;</h1>
+			<h1>&nbsp;</h1>
+    			<div class="container" style="   position:relative;" align="left">
+                    <h5 class="primary" style="font-size: 30px;color: #AAA;;">Sweet</h5>
+            			<h3 style="font-family: cookie,cursive;font-weight: 400; font-size:45px;">Our Dessert Menu</h3>
+					<h1>&nbsp;</h1>
+            	</div>
+		</div>
+	<div class="row">
+			    <div class="col-lg-5 col-md-5" style="padding:0px; margin-top:4%; position:relative">
+            	<img style="padding:40px" src="{{baseUrl}}/{{mitem2.img}}" class="img-fluid">
+					<form action="additem"  method="post">
+						{% csrf_token %}
+                <p style="color:red; font-size:45px; padding-right:40px; font-family:ppins; float:right;">Rs.{{mitem2.price}}</p>
+                <h2 style="padding-left:50px;" class="secondary">{{mitem2.name}}</h2>
+
+                <div  style="font-family:ppins; color:#bbb; text-transform:uppercase; letter-spacing:2px; padding-left:50px;"><p>
+					{{mitem1.det}}</p>
+                </div>
+				  <input name="item_id" type="hidden" value="{{ mitem2.name }}" class="hidden"  required>
+						<input name="price_id" type="hidden" value="{{ mitem2.price }}" class="hidden" required>
+						<input name="login_id" type="hidden" value="{{ user }}" class="hidden" required>
+				  <label for="cpass" style=" font-size:15px; padding-left:50px;">Quantity</label>
+				  <input type="text"  name="qty"   placeholder="Quantity" onkeyup="menuonly(this)" required style="width: 50px; font-size:10px;">
+              <button type="submit"  class="btn btn-success" style="margin-left:50px;">Buy Now</button>
+					</form>
+			 </div>
+          <div class="col-lg-7 col-md-7" style=" background-color:#f8f9fa;">
+              <div class="menu">
+				  {% for item in items2 %}
+               	  <div class="btnn">
+                   	  <span>
+                   	    <img src="{{baseUrl}}/{{item.img}}" class="img-fluid">
+						  <div style="clear:both">
+					  <h6 style="float:left">{{item.name}}</h6>
+			            <h6 style="float:right; color:red; font-size:18px; font-family:ppins; ">Rs.{{item.price}}</h6>&nbsp;
+						  </div>
+						  </span>
+                    </div>
+				  {% endfor %}
+				  <button class="btn btn-danger " type="button" style="margin:25px; border-radius:23px;font-weight: 700; font-size:24px;"><a href="{% url 'menu' %}" style="color:#ffffff"> See all menu</a> </button>
+			  </div>
+		  </div>
+		</div>
+</div>
+<!-- ====================================================Second menu layout close ================================================================-->
+
+
+<!-- ==================================================== Our services ============================================================================-->
+<div class="container-fluid">
+	<div style="position:relative">
+    	<img src="{% static 'image/menu/work.jpg' %}" class="img-fluid">
+        	<div style="position:absolute; top:10%;">
+            <img src="{% static 'image/menu/service.jpg' %}" class="img-fluid" height="40%" width="55%">
+            <button class="btn btn-danger " type="button" style="margin:25px; border-radius:23px; font-weight:650; font-size:20px;">Our Services</button>
+            </div>
+    </div>
+</div>
+<!-- ==================================================== Our services layout close ================================================================-->
+
+
+
+<!-- ======================================================  Our chefs section =====================================================================-->
+<div style="position:relative; background: #F5F5F5 url(image/chef/pattern.png);">
+<div class="container-fluid" style="position:relative;">
+<div class="row mt-5">
+<div class="col-lg-12">
+<h5 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px; margin-top:20px; margin-bottom:0PX;">Expert & Skillful
+</h5>
+<h1 align="center" style="font-size:50px; color:#FF0000; margin-top:10px; font-family: cookie,cursive; font-weight: 700;">Our Chefs</h1>
+</div> <!-- column close -->
+</div> <!-- container row close-->
+
+<div class="row mt-5">
+	{% for chef in chefs %}
+<div class="col-lg-3 col-md-3">
+<div class="card">
+<div class="card-body">
+<img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
+<h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">{{chef.name}}</h1>
+<h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">{{chef.det}}</h6>
+<ul class="mt-3">
+<li>{{chef.skill1}}</li>
+<li>{{chef.skill2}}</li>
+<li>{{chef.skill3}}</li>
+<li>{{chef.skill4}}</li>
+<li>{{chef.skill5}}</li>
+<br/>
+</ul>
+</div><!-- card body close-->
+</div><!-- main card close-->
+</div><!-- column close-->
+{% endfor %}
+</div>
+</div>
+</div>
+
+
+<!-- ====================================================    Chef section layout close    ========================================================-->
+
+
+
+<!-- ==================================================== contact section layout ================================================================-->
+<div style="border-top:solid #666666">
+</div>
+
+<div class="container mt-5">
+	<div class="row" style="margin-top:100px;">
+    	<div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px; " class="fa fa-map" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">LOCATION </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">{{location.name}}</br>{{location.det}}</h6>
+			<p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1780.9102293068058!2d83.35335931436279!
+			3d26.781992472154187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae735d795778b261!2sMaharana%20Pratap%20
+			Polytechnic!5e0!3m2!1sen!2sin!4v1583183542524!5m2!1sen!2sin" width="300" height="200" frameborder="0" style="border:0;"
+					   allowfullscreen=""></iframe></p>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px;" class="fa fa-clock" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">OPENING TIME </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">{{time.name}}</br>{{time.det}}</h6>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px;" class="fa fa-clipboard" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">RESERVATION </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb; padding:0px;">{{reserv.name}} </br>{{reserv.det}}</h6>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i  style=" color:#000000; font-size:48px;" class="fa fa-heart" aria-hidden="true"></i>
+        <h3  style="font-size: 22px; font-weight: 700;">SOCIAL CONTACT</h3>
+        <i style="color:blue; font-size:28px;" class="fab fa-facebook"></i>&nbsp
+        <i style="color:blue; font-size:28px;" class="fab fa-google"></i>&nbsp
+            <i style="color:blue; font-size:28px;" class="fab fa-twitter"></i>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}
+
+
+<!--====================================================contact section layout close================================================================-->
+

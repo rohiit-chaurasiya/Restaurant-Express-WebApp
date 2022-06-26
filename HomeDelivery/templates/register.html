@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% static 'image' as baseUrl %}
+<div style="position:relative; background:url({% static 'image/chef/pattern.png' %}); margin-top:80px;">
+<div class="container" style="position:relative;">
+	<form action="new"  method="post" style="position:relative">
+        {% csrf_token %}
+    <h1 align="center" class="alert-danger" style="color:#FF0000; font-size:50px; font-family:Forte;">Create New Account</h1>
+    <div class="form-row">
+    	<div class="form-group col-md-12">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="@username" onkeyup="usernameonly(this)" required>
+            {% if namerror %}
+            <footer class="blockquote-footer" style="color:red">{{namerror}}
+                    </footer>
+            {% endif %}
+        </div>
+        </div>
+	<div class="form-row">
+    	<div class="form-group col-md-12">
+        <label for="firstname">Name</label>
+        <input type="text" class="form-control"  name="name" id="firstname" placeholder="Name" onkeyup="lettersonly(this)" required>
+        </div>
+    </div>
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+            {% if mailerror %}
+            <footer class="blockquote-footer" style="color:red">{{mailerror}}
+                    </footer>
+            {% endif %}
+        </div>
+        <div class="form-group col-md-6">
+        <label for="phone">Phone No.</label>
+        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone no." onkeyup="numberonly(this)" required>
+            {% if phoneerror %}
+            <footer class="blockquote-footer" style="color:red">{{phoneerror}}
+                    </footer>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+        <label for="pass">Password</label>
+        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password" required>
+            {% if perror %}
+            <footer class="blockquote-footer" style="color:red">{{perror}}
+                    </footer>
+            {% endif %}
+        </div>
+        <div class="form-group col-md-6">
+        <label for="cpass">Confirm Password</label>
+        <input type="password" class="form-control" name="pass2" id="cpass" placeholder="Re-enter Password" required>
+            {% if perror %}
+            <footer class="blockquote-footer" style="color:red">{{perror}}
+                    </footer>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+        <label for="dob">Date of Birth</label>
+        <input type="text" class="form-control" name="dob" id="dob" placeholder="DD/MM/YYYY" onkeyup="date(this)" required>
+        </div>
+        <div class="form-group col-md-6">
+        <label for="sex">Gender</label>
+        <select id="sex" class="form-control">
+            <option selected>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-row">
+    	<div class="form-group col-md-12">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" id="address" placeholder="Address" onkeyup="addr(this)" required>
+        </div>
+    </div>   
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+        <label for="city">City</label>
+        <input type="text" class="form-control"  name="city" id="city" placeholder="City" required>
+        </div>
+        <div class="form-group col-md-4">
+        <label for="state">State</label>
+        <select id="state" class="form-control" required>
+        	<option selected >Choose.......</option>
+            <option>Delhi</option>
+           <option>Mumbai</option>
+           <option>Punjab</option>
+           <option>Bihar</option>
+           <option>Uttar Pradesh</option>
+           <option>Uttarakhand</option>
+        </select>
+        </div>
+        <div class="form-group col-md-2">
+        <label for="pin">Pin</label>
+        <input type="text" class="form-control" name="pin" id="pin" placeholder="Pin code" onkeyup="numberonly(this)" required>
+        </div>
+    </div>
+    <div class="form-row mt-5">
+    	<div class="form-group col-md-12">
+            <button type="submit" class="btn btn-block alert-primary" ><a> Register</a></button>
+        </div>
+    </div>   
+	</form>
+</div><!-- second container close -->
+</div>
+
+
+<!-- ==================================================== contact section layout =======================================================-->
+<div style="border-top:solid #666666">
+</div>
+
+<div class="container mt-5">
+	<div class="row" style="margin-top:100px;">
+    	<div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px; " class="fa fa-map" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">LOCATION </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">Maharana Pratap Polytechnic</br>Gorakhpur , 273015</h6>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px;" class="fa fa-clock" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">OPENING TIME </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">Sun - Thu | 07:00 - 23:00 Hours </br>Fri - Sat | 08:00 - 01:00 Hours</h6>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i style="color:#000000; font-size:48px;" class="fa fa-clipboard" aria-hidden="true"></i>
+        <h3 style="font-size: 22px; font-weight: 700;">RESERVATION </h3>
+        <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">Mobile: +91-8840854918 </br>Email:rajachaurasia108@gmail.com</h6>
+        </div>
+        <div class="col-lg-3 col-md-3" align="center">
+        <i  style=" color:#000000; font-size:48px;" class="fa fa-heart" aria-hidden="true"></i>
+        <h3  style="font-size: 22px; font-weight: 700;">SOCIAL CONTACT</h3>
+        <i style="color:#000000; font-size:28px;" class="fa fa-clipboard" ></i>
+        <i style="color:#000000; font-size:48px;" class=""></i>
+        <i style="color:#000000; font-size:48px;" class="" ></i>
+        <i style="color:#000000; font-size:48px;" class=""></i>
+        <i style="color:#000000; font-size:48px;" class="" ></i> 
+        </div>
+    </div>
+</div>
+<!-- ==================================================== contact section layout close  ==================================================-->
+{% endblock %}

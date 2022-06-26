@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% static 'image' as baseUrl %}
+
+
+<div  style="position:relative;margin-top:90px;height:auto;width:auto;" align="center">
+    <h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte;">User Order List</h1>
+    {% if adminorders %}
+    <div class="row " align="center">
+    <div class="col-sm-12">
+    <table class="table table-info border">
+        <thead>
+        <tr class="table-danger">
+            <th scope="col">&nbsp;</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">Payment</th>
+            <th scope="col">Option</th>
+            <th scope="col">Delivery Status</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for oitem in userorders %}
+            <tr>
+            <form action="cancel" method="post">
+                {% csrf_token %}
+            <td>&nbsp;</td>
+            <td scope="row">{{oitem.username}}</td>
+            <td>{{oitem.item_name}}</td>
+            <td>{{oitem.qty}}</td>
+            <td>{{oitem.price}}</td>
+                <td> </td>
+            <td>{{oitem.payment}}</td>
+                <input name="item_id" type="hidden" value="{{oitem.id}}" class="hidden" required>
+                <td><button class="btn btn-outline-warning " type="submit" style="border-radius:20px; font-weight: 500; font-size:16px;
+                color:#ffffff">Itam Cancel</button></td>
+
+            </form>
+                <form action="admindelivered" method="post">
+                    {% csrf_token %}
+                    <input name="item_id" type="hidden" value="{{oitem.id}}" class="hidden" required>
+                    <input name="username" type="hidden" value="{{oitem.username}}" class="hidden" required>
+                    <input name="itemname" type="hidden" value="{{oitem.item_name}}" class="hidden" required>
+                    <input name="qty" type="hidden" value="{{oitem.qty}}" class="hidden" required>
+                    <input name="price" type="hidden" value="{{oitem.price}}" class="hidden" required>
+                    <input name="payment" type="hidden" value="{{oitem.payment}}" class="hidden" required>
+
+                  <td><button class="btn btn-success" type="submit" style="border-radius:20px; font-weight: 500; font-size:16px;
+                color:#ffffff">Itam Delivered</button></td>
+                </form>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+</div>
+<div align="center">
+    <button class="btn btn-danger " type="button" style=" margin-top:60px;border-radius:30px;font-weight: 700; font-size:25px;">
+        <a href="{% url 'orderconfirm' %}" style="color:#ffffff;text-decoration: none;">Save</a></button>
+</div>
+{% else %}
+<div style="margin-top:0px;" align="center">
+<img src="{{baseUrl}}/{{adminempty.img}}" class="img-fluid">
+    <h1 align="center" style="color:red; font-size:50px;">User Orders Emapty!</h1>
+    {% endif %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,306 @@
+@charset "utf-8";
+/* CSS Document */
+
+#menulist button {
+     margin:20px;
+     background-color:#60b246;
+     color:#ffffff;
+     border-radius:20px;
+     font-weight: 600;
+     font-size:20px;
+}
+#menulist a {
+    text-decoration: none;
+}
+
+#arlogo {
+height:80px;
+}
+
+@media(max-width:768px) {
+	#menulist button{
+	margin:5px;
+     background-color:#60b246;
+     color:#ffffff;
+     border-radius:15px;
+     font-weight: 500;
+     font-size:15px;
+     }
+}
+
+#gallery h1 {
+ font-size:70px;
+ margin-left:100px;
+}
+
+@media(max-width:768px) {
+ #gallery h1 {
+ font-size:70px;
+ margin-left:40px;
+}
+ #gallery h4 {
+ font-size:20px;
+ margin-left:20px;
+}
+}
+
+
+@media(max-width:768px) {
+    #navstyle nav {
+	background-color:#FFFFFF;
+        padding: 20px 0;
+        border-bottom: 0;
+        background: #FFFFFF;
+    }
+
+    #navstyle .navbar-collapse {
+        background: #ffffff;
+        padding: 0;
+    }
+
+	#navstyle .navbar .navbar-brand {
+	color:black;
+	font-size:18px;
+	margin-top:-20px;
+	}
+
+	 #arlogo {
+     height:50px;
+     }
+	#navstyle .navbar .navbar-toggler {
+	font-size:15px;
+	margin-top:-23px;
+	float:right;
+	}
+
+	#navstyle .navbar a {
+	font-size:15px;
+	color:black;
+	float:center;
+	}
+
+	#navstyle .navbar li a i {
+	color:red;
+	}
+}
+.navbar button :hover {
+color:red;
+}
+
+.section {
+    position: relative;
+    margin: 60px 0;
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.vertical
+{
+    height: auto;
+    left: 0;
+    max-width: none;
+    z-index: 2;
+}
+
+
+.about .primary {
+    font-family: Raleway,sans-serif;
+    font-size: 16px;
+    color: #AAA;
+    margin-top:10px;
+}
+.about h3 {
+font-family: cookie,cursive;
+font-weight: 500;
+font-size:30px;
+color:#1abc9c;
+}
+.about h2 {
+font-size:40px;
+font-family: Segoe UI;
+}
+#child
+{
+	position:absolute;
+	width:Auto;
+	height:auto;
+	left: 3px;
+	margin-left:5%;
+	margin-top:10%;
+}
+
+
+@media(max-width:768px) {
+.about .primary {
+    font-family: Raleway,sans-serif;
+    font-size: 10px;
+    color: #AAA;
+    margin-top:0px;
+}
+.about h3 {
+font-family: cookie,cursive;
+font-weight: 500;
+font-size:10px;
+color:#1abc9c;
+margin-top:10px;
+}
+.about h2 {
+font-size:10px;
+font-family: Segoe UI;
+}
+#menuchild{
+position:absolute;
+	width:Auto;
+	height:auto;
+	left: 3px;
+	margin-left:5%;
+
+ margin-top:5%;
+
+}
+
+#child
+{
+	position:absolute;
+	width:Auto;
+	height:auto;
+	left: 3px;
+	margin-left:5%;
+	margin-top:40%;
+}
+}
+
+
+
+.padding
+{
+padding:60px;
+}
+#parent
+{
+position:relative
+width:auto;
+height:auto;
+}
+
+.navbar .navbar-nav li
+{
+    display: block;
+    line-height: 30px;
+    color: #444;
+    font-weight: 670;
+    font-size: 13px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+#brand
+{
+font-size:27px;
+text-align:center;
+font-weight: 700;
+color:red;
+float:none;
+margin-top:0px;
+margin-bottom:10px;
+font-family:font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.menu
+{
+    width: 100%;
+    margin: 0 auto;
+	padding:50px;
+}
+.menu .btnn
+{
+
+    width: 30%;
+    display: inline-block;
+    justify-content: center;
+    height: 220px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #00000000;
+}
+
+.menu .btnn span
+{
+position: relative;
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    width: auto;
+    height: 100%;
+}
+
+.secondary {
+    font-family: cookie,cursive;
+    font-weight: 400;
+}
+
+.price
+{
+    position: absolute;
+    top: 280px;
+    right: 50px;
+    font-size: 48px;
+    letter-spacing: -1px;
+    font-weight: 500;
+    color:red;
+
+}
+#menuimgdiv
+{
+position:relative;
+width:auto;
+height:auto;
+}
+#menuimgtext
+{
+position:absolute;
+width:auto;
+height:auto;
+}
+
+#menuimg
+{
+height:100%;
+width:auto;
+}
+
+#childdown
+{
+position:absolute;
+width:1349;
+top:610px;
+height:auto;
+}
+
+#logo{
+position:relative
+}
+
+.navbar-nav  li{
+  margin-left:5px;
+
+}
+
+#btno {
+    font-size:15px;
+    padding:2px;
+}
+
+
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

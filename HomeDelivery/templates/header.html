@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"  >
+  <title> Restaurent</title>
+    {% load static %}
+	{% static "image" as baseUrl %}
+<link href="{% static 'css/bootstrap.css' %}" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/restaurent.css' %}" type="text/css">
+<script src="{% static 'js/jquery.js' %}" type="text/javascript" ></script>
+<script src="{% static 'js/all.js' %}" type="text/javascript" ></script>
+<script src="{% static 'js/bootstrap.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#check').modal('show');
+    });
+</script>
+
+
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!--====================================================================== Navigation , slider layout ===================================================-->
+<div style="position:relative;">
+<div class="carousel slide" data-ride="carousel" id="run">
+<ol class="carousel-indicators">
+<li data-slide-to="0" class="active"></li>
+<li data-slide-to="1"></li>
+<li data-slide-to="2"></li>
+<li data-slide-to="3"></li>
+</ol>
+<div class="carousel-inner">
+	{% for slider in sliders %}
+<div class="carousel-item ">
+<div>
+<img src="{{baseUrl}}/{{slider.img}}" class="img-fluid">
+</div>
+<!--     <div class="carousel-caption"><p>Traning</p></div>     -->
+</div>   <!--carousel item close-->
+	{% endfor %}
+<div class="carousel-item active ">
+<div>
+<img src="{% static 'image/slider/test3.jpg' %}" class="img-fluid">
+</div>
+<!--   <div class="carousel-caption"><p>Traning</p></div>   -->
+</div>
+<a href="#run" class="carousel-control-prev" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+<a href="#run" class="carousel-control-next" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+</div><!-- carousel inner close -->
+</div> <!--carousel slider close-->
+
+<div id="navstyle" class="container" style="position: absolute;">
+<div class="row">
+<nav class=" navbar navbar-expand-md fixed-top navbar-light" style="top:0; left:0; width:100%; z-index:4; background: url({% static 'image/headertop.png' %}) repeat center bottom; background-size: auto 100%; height:90px;">
+<a href="#" class="navbar-brand  mx-auto mb-4"  style="color:#FF0000; font-size:40px; font-family: Segoe UI;"><strong>Our Restaurent</strong> </a>
+<button class="navbar-toggler hidden-mt-up mb-4" type="button" data-toggle="collapse" data-target= "#hide" style="background-color:#1abc9c;">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div id="hide" class="navbar-collapse">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item "> <a href="{% url 'home' %}" class="nav-link">Home </a></li>
+<li class="nav-item"> <a href="{% url 'about' %}" class="nav-link">About us</a></li>
+<li class="nav-item"> <a href="{% url 'menu' %}" class="nav-link">Menu</a></li>
+<li class="nav-item"> <a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
+<li class="nav-item"> <a href="{% url 'reservation' %}" class="nav-link">Reservation</a>
+</li><!--list menu item close -->
+<li  class="nav-item" > <a href="{% url 'page' %}" class="nav-link">Log in</a></li>
+<li class="nav-item"> <a href="{% url 'add' %}" class="nav-link"><i  style="font-size:35px" class="fas fa-user-plus"></i></a></li>
+</ul><!-- second ul close-->
+</div><!-- ul list close -->
+</nav>
+</div><!-- row close-->
+</div><!-- container close -->
+</div>
+</body>
+</html>

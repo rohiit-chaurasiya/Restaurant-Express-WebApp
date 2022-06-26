@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    {% static "image" as baseUrl %}
+<div  style="position:relative;margin-top:90px;height:auto;width:auto;" align="center">
+    <h1 align="center" style="color:#1abc9c; font-size:60px; font-family:Forte;">Order Successful</h1>
+</div>
+
+<div style="margin-top:0px;" align="center">
+<img src="{{baseUrl}}/{{porder.img}}" class="img-fluid">
+    <h1 align="center" style="color:red; font-size:50px;">Order Placed </h1>
+</div>
+<div align="center">
+<button class="btn" type="button" style=" margin-top:60px; border-radius:50px; font-weight:700; font-size:40px; background-color:blue;">
+        <a href="{% url 'finalitems' %}" style="color:#ffffff;text-decoration: none;">Go to My Orders</a></button>
+</div>
+{% endblock %}

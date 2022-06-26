@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% static 'image' as baseUrl %}
+
+
+<div class="container-fluid">
+	<h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte; margin-top:100px;">Our Reservation</h1>
+	{% if room %}
+<div class="row mt-5">
+	{% for room in roomuser %}
+<div class="col-lg-4 col-md-4">
+<div class="card">
+<div class="card-body">
+	<h1 align="center" style="font-size:35px ; margin-top:1px; padding:0px;color:#fc8019;"><strong>{{room.cname}}</strong></h1>
+<div class="form-row">
+        <div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Email</strong></label>
+			<label style="font-size:20px;">{{room.cemail}}</label>
+        </div>
+    </div>
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Check-In-Date</strong></label>
+			<label style="font-size:20px;">{{room.date}}</label>
+        </div>
+        <div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Check-Out-date</strong></label>
+			<label style="font-size:20px;">{{room.ctime}}</label>
+    </div>
+    </div>
+
+    <div class="form-row">
+    	<div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Phone No.</strong></label><br/>
+			<label style="font-size:20px;">{{room.cphone}}</label>
+        </div>
+        <div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Alternate Phone No.</strong></label>
+			<label style="font-size:20px;">{{room.aphone}}</label>
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+			<label style="color:#60b246;"><strong>Room Qty.</strong></label><br/>
+			<label style="font-size:20px;">{{room.room}}</label>
+        </div>
+            <div class="form-group col-md-6">
+				<label style="color:#60b246;"><strong>Person</strong></label><br/>
+				<label style="font-size:20px;">{{room.cperson}}</label>
+        </div>
+    </div>
+
+</div><!-- card body close-->
+</div><!-- main card close-->
+</div><!-- column close-->
+{% endfor %}
+</div>
+	{% else%}
+	<img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
+	<h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">Reservation Empty</h1>
+	{% endif %}
+
+</div>
+
+
+{% endblock %}
