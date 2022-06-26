@@ -1,6 +1,6 @@
 # HomeDeliveryRestaurants
 
-Git Clone this repo - git clone 
+Git Clone this repo - git clone https://github.com/RohitAayushmaan/HomeDeliveryRestaurants.git
 
 
 
