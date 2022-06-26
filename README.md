@@ -1,6 +1,8 @@
 # HomeDeliveryRestaurants
 
-Git Clone this repo
+Git Clone this repo - git clone 
+
+
 
 Make Virtual Environment 
 
@@ -16,12 +18,12 @@ check django version - django-admin --version
 
 
 
-#Now Run 
+# Now Run 
 python manage.py runserver
 
 
 
-#Create Database
+# Create Database
 python manage.py makemigrations
 
 python manage.py migrate
