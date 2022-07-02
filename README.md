@@ -6,7 +6,7 @@ Git Clone this repo - git clone https://github.com/RohitAayushmaan/HomeDeliveryR
 
 Make Virtual Environment 
 
-pip install virtualenvwrapper-win
+pip install virtualenvwrapper-win 
 
 mkvirtualenv envName
 
@@ -15,6 +15,10 @@ workon envName
 pip install django
 
 check django version - django-admin --version
+
+
+# Create Database
+python manage.py makemigrations
 
 
 
