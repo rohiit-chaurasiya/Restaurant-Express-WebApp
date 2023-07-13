@@ -3,7 +3,7 @@
 Git Clone this repo - git clone https://github.com/RohitAayushmaan/HomeDeliveryRestaurants.git
 
 
-Make Virtual Environment 
+Make Virtual Environment  
 
 pip install virtualenvwrapper-win 
 
