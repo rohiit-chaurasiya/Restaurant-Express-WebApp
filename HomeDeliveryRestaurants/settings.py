@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'payment',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +85,11 @@ WSGI_APPLICATION = 'HomeDeliveryRestaurants.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'restaurent',
+        'NAME': 'restaurants',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'Kiet@9211',
+        'PASSWORD': 'Kiet9211',
         'OPTIONS': {
             'autocommit': True,
         },
@@ -145,3 +146,8 @@ STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Payment
+key_id = 'rzp_test_fK6V4JrgIbcHdj'
+key_secret = 'JZdV8Tv1crpbhnZCTRRMKCj1'

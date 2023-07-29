@@ -304,3 +304,18 @@ position:relative
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
+
+@media (max-width: 880px) {
+
+  #footer{
+    font: bold 14px sans-serif;
+  }
+
+  #footer{
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+

@@ -1,13 +1,28 @@
+import razorpay
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render,redirect
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django.contrib.auth.models import auth
 from django.contrib import messages
 from django.contrib.auth import authenticate , login,logout
-from .models import new_info , user_orders,user_cart,orderplaceimg ,adminlogin ,adminloginpage,loginimg
+from django.template import RequestContext
+
+
+from HomeDeliveryRestaurants.settings import key_id, key_secret
+from .models import new_user , user_orders,user_cart,orderplaceimg ,adminlogin ,adminloginpage,loginimg
 from .models import item
 from .models import aboutd,bottom,offers,menuitem,gallery1,reservation1,reservationb,cart,rlogo
+from django.contrib.auth import authenticate, login as auth_login
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.conf import settings
+from .models import Transaction
 
+
+
+
+# client = razorpay.Client(auth=(key_id,key_secret))
 # Create your views here.
+# razorpay_client = razorpay.Client(auth=(settings.key_id, settings.key_secret))
 
 usercheck=False
 def check(request):
@@ -22,7 +37,7 @@ def check(request):
     if request.method == 'POST':
         fpassword1 = request.POST['pass1']
         fusername = request.POST['username']
-        if new_info.objects.filter(username=fusername).exists() and new_info.objects.filter(pass1=fpassword1).exists():
+        if new_user.objects.filter(username=fusername).exists() and new_user.objects.filter(pass1=fpassword1).exists():
             usercheck=True
             otherpage = fusername
             print("success1")
@@ -237,8 +252,8 @@ def index(request):
 
     global location
     location=item()
-    location.name='Maharana Pratap Polytechnic'
-    location.det='Gorakhpur,273015'
+    location.name='KIET Group of Institutions'
+    location.det='Ghaziabad,206201'
 
     global time
     time=item()
@@ -248,14 +263,14 @@ def index(request):
     global reserv
     reserv=item()
     reserv.name='MOBILE: +91-8840854918'
-    reserv.det='EMAIL:rajachaurasia108@gmail.com'
+    reserv.det='E-MAIL: rohiit.chaurasiya@gmail.com'
 
     global awebd
     awebd = bottom()
-    awebd.name = 'Our Restaurant'
+    awebd.name = 'Aayushmaan Restaurant'
     awebd.img1 = 'menu/footer.jpg'
     awebd.img2 = 'headertop.png'
-    awebd.det = '©Copyright 2020 at Aayushmaan Community Pvt.Ltd. All Rights Reserved.'
+    awebd.det = 'Aayushmaan Community © 2023'
 
     global webd1
     webd1 = bottom()
@@ -326,10 +341,10 @@ def home(request):
 def about(request):
     # =====================about
     aboutr = aboutd()
-    aboutr.name = 'Our Restaurant'
+    aboutr.name = 'Aayushmaan Restaurant'
     aboutr.img = 'about1.jpg'
     aboutr.det = 'The Right Ingredients for the Right Food.'
-    aboutr.desc = 'Location:Gorakhpur'
+    aboutr.desc = 'Location: Ghaziabad'
 
     chefs = [chef1, chef2, chef3, chef4]
     webd=[awebd]
@@ -2738,12 +2753,12 @@ def reservation(request):
     webds = [webd1, webd2]
     reservation=reservation1()
     reservation.mname='Reservation'
-    reservation.det='GORAKHPUR:'
-    reservation.desc='Near Maharana Pratap Polytechnic'
-    reservation.addr='Gorakhnath , Gorakhpur'
-    reservation.pin='Pin-277121'
+    reservation.det='Ghaziabad:'
+    reservation.desc='KIET Group of Institutions'
+    reservation.addr='Delhi-NCR'
+    reservation.pin='Pin: 201206'
     reservation.phone='+91-8840854918'
-    reservation.email='gorakhpur@gmail.com'
+    reservation.email='rohiit.chaurasiya@gmail.com'
     if usercheck==True:
         print(otherpage)
         return render(request,'reservation.html',{'reservation':reservation,'webd':webd,'webds':webds,'otherpage':otherpage,'logor':logor})
@@ -2766,16 +2781,16 @@ def add(request):
         city = request.POST["city"]
         pin = request.POST["pin"]
         if pass1==pass2:
-            if new_info.objects.filter(username=username).exists():
+            if new_user.objects.filter(username=username).exists():
                 return render(request, 'register.html', {'namerror':"User Name Already Exist Please try another userName",'webd': webd, 'webds': webds,'logor':logor})
-            elif new_info.objects.filter(email=email).exists():
+            elif new_user.objects.filter(email=email).exists():
                 return render(request, 'register.html', {'mailerror':"Eamil has already registerd",'webd': webd, 'webds': webds,'logor':logor})
-            elif new_info.objects.filter(phone=phone).exists():
+            elif new_user.objects.filter(phone=phone).exists():
                 return render(request, 'register.html', {'phoneerror':"Phone No has already registerd",'webd': webd, 'webds': webds,'logor':logor})
             else:
-                newinfo = new_info(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2, dob=dob,
+                newinfo = new_user(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2, dob=dob,
                            address=address, city=city, pin=pin)
-                new_info.user = request.user
+                new_user.user = request.user
                 newinfo.save()
                 return render(request, "login.html",{'webd':webd,'webds':webds,'imglogin':imglogin,'logor':logor})
         else:
@@ -2811,7 +2826,7 @@ def myreserv(request):
     webd = [awebd]
     webds = [webd1, webd2]
     roomuser=[]
-    for p in reservationb.objects.raw('SELECT * FROM our_restaurent_reservationb where username=%s', [otherpage]):
+    for p in reservationb.objects.raw('SELECT * FROM homedelivery_reservationb where username=%s', [otherpage]):
         x = p
         roomuser.append(x)
     if roomuser==[]:
@@ -2833,7 +2848,7 @@ def userlogout(request):
     return render(request, 'login.html', {'webd': webd, 'webds': webds,'imglogin':imglogin,'logor':logor})
 
 def additem(request):
-    global usercheck , otherpage,nameul,priceul,qtyul
+    global usercheck , otherpage,nameul,priceul,qtyul,totalprice,amount
     nameul = request.POST.get("item_id")
     priceul = request.POST.get("price_id")
     qtyul = request.POST.get("qty")
@@ -2845,8 +2860,8 @@ def additem(request):
         print(priceul)
         print(qtyul)
     if usercheck==True:
-        y = int(qtyul)
-        z = int(priceul)
+        y = int(qtyul or 0)
+        z = int(priceul or 0)
         a = int(y * z)
         neworder=user_cart(item_name=nameul,price=a,qty=qtyul,username=otherpage)
         user_cart.user=request.user
@@ -2855,20 +2870,39 @@ def additem(request):
         global orders
         userorderlist(request)
         cart1="cart"
-        return render(request, 'order.html', {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders,'cart1':cart1,'logor':logor})
+        totalprice=0
+        for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s',[otherpage]):
+            x = p
+            totalprice = totalprice + int(p.price)
+
+        amount=totalprice*100
+        return render(request, 'order.html', {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders,'cart1':cart1,'logor':logor,'totalprice':totalprice,'amount':amount})
     else:
         return render(request, 'login.html', {'webd': webd, 'webds': webds,'imglogin':imglogin,'logor':logor})
-
 
 def userorderlist(request):
     webd = [awebd]
     webds = [webd1, webd2]
-    global otherpage, nameul, priceul, qtyul
+    global otherpage, nameul, priceul, qtyul,totalprice,amount
     global orders ,price
     orders = []
-    for p in user_cart.objects.raw('SELECT * FROM our_restaurent_user_cart where username=%s', [otherpage]):
+    totalprice = 1
+    for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s', [otherpage]):
         x = p
+        totalprice = totalprice + int(p.price)
         orders.append(x)
+
+    name = request.POST.get('name')
+    amount=1000
+    totalprice=totalprice-1
+    amount = (totalprice)*100
+    client = razorpay.Client(
+        auth=("rzp_test_fK6V4JrgIbcHdj", "JZdV8Tv1crpbhnZCTRRMKCj1"))
+    callback_url = 'http://'+ str(get_current_site(request))+"/payment/"
+    payment = client.order.create({'amount': amount, 'currency': 'INR',
+                                   'payment_capture': '1'})
+    order_id =payment['id']
+    print(callback_url)
     if orders==[]:
         print("Blank ")
         return render(request, 'order.html',{'webd': webd, 'webds': webds, 'otherpage': otherpage,'orders': orders,'ucart':ucart,'logor':logor})
@@ -2877,7 +2911,8 @@ def userorderlist(request):
         cart1 = "cart"
         print(cart1)
         return render(request, 'order.html',
-                      {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders, 'cart1': cart1,'logor':logor})
+                      {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders, 'cart1': cart1,'logor':logor,'totalprice':totalprice,
+                       'callback_url':callback_url,'payment':payment,'order_id':order_id})
 
 
 def finalitems(request): #your orders Button function
@@ -2887,7 +2922,7 @@ def finalitems(request): #your orders Button function
      webd = [awebd]
      webds = [webd1, webd2]
      orders = []
-     for p in user_orders.objects.raw('SELECT * FROM our_restaurent_user_orders where username=%s', [otherpage]):
+     for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders where username=%s', [otherpage]):
          x = p
          orders.append(x)
      if orders == []:
@@ -2901,9 +2936,8 @@ def finalitems(request): #your orders Button function
          return render(request, 'order.html',
                        {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders, 'cart1': cart1,'finalorder':finalorder,'logor':logor})
 
-
 def itemremove(request):
-    global cart1 ,otherpage
+    global cart1 ,otherpage,amount
     nameul = request.POST.get("item_id")
     webd = [awebd]
     webds = [webd1, webd2]
@@ -2913,8 +2947,10 @@ def itemremove(request):
         user_cart.user=request.user
         print(nameul)
         orders = []
-        for p in user_cart.objects.raw('SELECT * FROM our_restaurent_user_cart where username=%s', [otherpage]):
+        totalprice=0
+        for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s', [otherpage]):
             x = p
+            totalprice = totalprice + int(p.price)
             orders.append(x)
         if orders == []:
             print("Blank ")
@@ -2923,18 +2959,20 @@ def itemremove(request):
         else:
             global cart1
             cart1 = "cart"
+            amount=totalprice*100
             return render(request, 'order.html',
-                          {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders, 'cart1': cart1,'logor':logor})
+                          {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'orders': orders, 'cart1': cart1,'logor':logor,'totalprice':totalprice,'amount':amount})
     else:
         return render(request, 'order.html',{'webd': webd, 'webds': webds, 'otherpage': otherpage,'logor':logor})
 
 def orderconfirm(request):
+    global orders
     webd = [awebd]
     webds = [webd1, webd2]
     global orders,totalprice
     orders = []
     totalprice=0
-    for p in user_cart.objects.raw('SELECT * FROM our_restaurent_user_cart where username=%s', [otherpage]):
+    for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s', [otherpage]):
         x = p
         totalprice=totalprice+int(p.price)
         orders.append(x)
@@ -2942,17 +2980,39 @@ def orderconfirm(request):
     return render(request, 'payment.html',{'webd': webd, 'webds': webds, 'otherpage': otherpage, 'ucart': ucart, 'cart1': cart1,'orders': orders,'totalprice':totalprice
                                            ,'userpayment':userpayment,'logor':logor})
 
-
-userpayment='False'
+@csrf_exempt
 def payment(request):
-    global orders, totalprice
-    webd = [awebd]
-    webds = [webd1, webd2]
-    global userpayment
-    userpayment='Paid'
-    return render(request, 'payment.html',
-                  {'webd': webd, 'webds': webds, 'otherpage': otherpage, 'ucart': ucart, 'cart1': cart1,
-                   'orders': orders, 'totalprice': totalprice,'userpayment':userpayment,'logor':logor})
+    if request.method == 'POST':
+        webd = [awebd]
+        webds = [webd1, webd2]
+        global userpayment
+        userpayment='Paid'
+        print(userpayment)
+        fitems = []
+        fprice = []
+        fqty = []
+        for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s',[otherpage]):
+            x = p.item_name
+            y = p.price
+            z = p.qty
+            fitems.append(x)
+            fprice.append(y)
+            fqty.append(z)
+            finalorder = user_orders(item_name=p.item_name, price=p.price, qty=p.qty, username=otherpage,
+                                     payment=userpayment)
+            user_cart.user = request.user
+            finalorder.save()
+            print("user order save")
+        usercartdelete = user_cart.objects.filter(username=otherpage).delete()
+        user_cart.user = request.user
+        userpayment = 'False'
+        return render(request, 'payment.html',{'webd': webd, 'webds': webds,'userpayment':userpayment,'logor':logor,'otherpage': otherpage, 'ucart': ucart,})
+    else:
+        return HttpResponse('Payment Error')
+
+
+def render_to_response(param, csrfContext):
+    pass
 
 
 def orderplace(request):
@@ -2966,7 +3026,7 @@ def orderplace(request):
     fitems = []
     fprice=[]
     fqty=[]
-    for p in user_cart.objects.raw('SELECT * FROM our_restaurent_user_cart where username=%s', [otherpage]):
+    for p in user_cart.objects.raw('SELECT * FROM restaurants.homedelivery_user_cart where username=%s', [otherpage]):
         x = p.item_name
         y=p.price
         z=p.qty
@@ -3014,14 +3074,14 @@ def checkadmin(request):
     if request.method == 'POST':
         fpassword1 = request.POST['pass1']
         fadminname = request.POST['username']
-        if adminlogin.objects.filter(username=fadminname).exists() and new_info.objects.filter(pass1=fpassword1).exists():
+        if adminlogin.objects.filter(username=fadminname).exists() and new_user.objects.filter(pass1=fpassword1).exists():
             global otherpage
             otherpage=fadminname
             admincheck = True
             print(fadminname)
             print("success1")
             userorders = []
-            for p in user_orders.objects.raw('SELECT * FROM our_restaurent_user_orders'):
+            for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
                 x = p
                 userorders.append(x)
             if userorders == []:
@@ -3050,7 +3110,7 @@ def cancel(request):
         user_orders.user = request.user
         print(nameul)
         userorders = []
-        for p in user_orders.objects.raw('SELECT * FROM our_restaurent_user_orders'):
+        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
             x = p
             userorders.append(x)
         if userorders == []:
@@ -3086,7 +3146,8 @@ def admindelivered(request):
         print(nameul)
         userorders = []
 
-        for p in user_orders.objects.raw('SELECT * FROM our_restaurent_user_orders'):
+
+        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
             x = p
             userorders.append(x)
         if userorders == []:
@@ -3102,5 +3163,3 @@ def admindelivered(request):
     else:
         print("post error")
         return render(request, 'adminorder.html', {'webd': webd, 'webds': webds, 'otherpage': otherpage,'adminempty': adminempty,'logor':logor})
-
-

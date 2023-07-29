@@ -48,5 +48,6 @@ urlpatterns = [
     path('burger/',include('HomeDelivery.urls')),
     path('sindian/',include('HomeDelivery.urls')),
     path('myreserv/',include('HomeDelivery.urls')),
+    # path('success/',include('HomeDelivery.urls')),
     path('',include('HomeDelivery.urls'))
 ]
