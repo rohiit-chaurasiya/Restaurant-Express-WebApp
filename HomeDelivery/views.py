@@ -2707,6 +2707,7 @@ def sindian(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'menuslider':menuslider})
 
+<<<<<<< HEAD
 def gallery(request):
     global otherpage
     check(request)
@@ -3163,3 +3164,6 @@ def admindelivered(request):
     else:
         print("post error")
         return render(request, 'adminorder.html', {'webd': webd, 'webds': webds, 'otherpage': otherpage,'adminempty': adminempty,'logor':logor})
+=======
+
+>>>>>>> f39fa112b8a27cd18af1ae2ce572dcb57c288a22
