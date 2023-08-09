@@ -4,40 +4,97 @@
 {% static 'image' as baseUrl %}
 
 
-<div  class="container-fluid img-fluid" style="position:relative; background:url({{baseUrl}}/{{imglogin.img}}); margin-top:100px; height:auto;">
-<div class="container-fluid " style="position:relative;">
+<div  class="container-fluid login__page img-fluid" style="position:relative;  background:url({% static 'image/about.jpg' %}); height:100%;width:100%">
+<div class="container mt-5" style="position:relative;">
 	<form action="check"  method="post">
+        <div>
         {% csrf_token %}
-        <div class="col-md-5">
-            <h1 align="center" style="color:black; font-size:50px;"><strong>Welcome</strong></h1>
-            <h6 class="mb-4" align="center">To Login Please Enter your Username and Password</h6>
+            <div class="row">
+        <div class=" col-12 col-sm-8 col-lg-5 col-md-6 mt-5">
+<!--            <h1></h1>-->
+            <h1 style="margin-top:15px"></h1>
+            <h1 align="center" style="color:black; font-size:50px;margin-top:5px"><strong>Welcome</strong></h1>
+            <h6 class="mb-4" align="center">Enter your Username and Password</h6>
         </div>
-    <div class="form-row" align="center">
-    	<div class="form-group col-md-5" align="center">
-        <label for="username">User Name</label>
+            </div>
+    <div class="form-row">
+    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
+        <label for="username"><b>USERNAME</b></label>
         <input  type="text" class="form-control" id="username" name="username" placeholder="@Username" onkeyup="usernameonly(this)" required>
         </div>
         </div>
     <div class="form-row">
-    	<div class="form-group col-md-5" align="center">
-        <label for="pass1">Password</label>
+    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
+        <label for="pass1"><b>PASSWORD</b></label>
         <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password" required>
         </div>
     </div>
-    <div class="form-row mt-5">
-    	<div class="form-group col-md-5" align="center">
+    <div class="form-row mt-2">
+    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" align="center">
             <!--<button type="submit" class="btn btn-block alert-primary" id="submit"><a>Login</a></button>-->
-            <button class="btn" type="submit" id="submit" style="margin:25px; background-color:#fc8019;border-radius:23px;font-weight:700; font-size:24px; color:#ffffff;">Login Now</button>
-            <button class="btn" type="button" style="margin:25px; background-color:#ffffff;border-radius:23px;font-weight: 700; font-size:24px;">
-                <a href="{% url 'add' %}" style="color:black">Create Account</a></button>&nbsp
-            <h3  style="font-size: 22px; font-weight: 700;" align="center">Or</h3>&nbsp
-        <i style="color:blue; font-size:35px;" class="fab fa-facebook" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
-        <i style="color:blue; font-size:35px;" class="fab fa-google" ></i>&nbsp;&nbsp;&nbsp;&nbsp;
-            <i style="color:blue; font-size:35px;" class="fab fa-twitter" ></i>
+            <button class="btn btn-lg btn-block" type="submit" id="submit" style="background-color:#fc8019;border-radius:10px;font-weight:600; font-size:24px; color:#ffffff;padding-top:3px">Login Now</button>
+                <p class="mt-4">Don’t have an account yet? <a href="{% url 'add' %}" style="color:#563d7c"><b>Create Account</b></a></p>
         </div>
     </div>
+        </div>
 	</form>
 </div><!-- second container close -->
 </div>
+
+
+<!--<section class="flex flex-col md:flex-row h-screen items-center">-->
+
+<!--  <div class="bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">-->
+<!--    <img src="https://source.unsplash.com/random" alt="" class="w-full h-full object-cover">-->
+<!--  </div>-->
+
+<!--  <div class="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12-->
+<!--        flex items-center justify-center">-->
+
+<!--    <div class="w-full h-100">-->
+
+
+<!--      <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>-->
+
+<!--      <form class="mt-6" action="#" method="POST">-->
+<!--        <div>-->
+<!--          <label class="block text-gray-700">Email Address</label>-->
+<!--          <input type="email" name="" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>-->
+<!--        </div>-->
+
+<!--        <div class="mt-4">-->
+<!--          <label class="block text-gray-700">Password</label>-->
+<!--          <input type="password" name="" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500-->
+<!--                focus:bg-white focus:outline-none" required>-->
+<!--        </div>-->
+
+<!--        <div class="text-right mt-2">-->
+<!--          <a href="#" class="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Forgot Password?</a>-->
+<!--        </div>-->
+
+<!--        <button type="submit" class="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg-->
+<!--              px-4 py-3 mt-6">Log In</button>-->
+<!--      </form>-->
+
+<!--      <hr class="my-6 border-gray-300 w-full">-->
+
+<!--      <button type="button" class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">-->
+<!--            <div class="flex items-center justify-center">-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/></svg>-->
+<!--            <span class="ml-4">-->
+<!--            Log in-->
+<!--            with-->
+<!--            Google</span>-->
+<!--            </div>-->
+<!--          </button>-->
+
+<!--      <p class="mt-8">Need an account? <a href="#" class="text-blue-500 hover:text-blue-700 font-semibold">Create an-->
+<!--              account</a></p>-->
+
+
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</section>-->
 <!-- ==================================================== contact section layout close  ================================================================-->
 {% endblock %}

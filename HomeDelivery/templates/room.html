@@ -4,9 +4,8 @@
 {% load static %}
 {% static 'image' as baseUrl %}
 
-
 <div class="container-fluid">
-	<h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte; margin-top:100px;">Aayushmaan Reservation</h1>
+	<h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte; margin-top:100px; ">Aayushmaan Reservation</h1>
 	{% if room %}
 <div class="row mt-5">
 	{% for room in roomuser %}
@@ -58,11 +57,12 @@
 {% endfor %}
 </div>
 	{% else%}
-	<img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
-	<h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">Reservation Empty</h1>
+	<div align="center">
+	<img src="{% static 'image/place.png' %}" class="img-fluid mt-5">
+	<h1 align="center" class="mt-5" style="font-size:28px ;margin-top-50px; padding:0px;">Reservation Empty</h1>
+	</div>
 	{% endif %}
 
 </div>
-
 
 {% endblock %}

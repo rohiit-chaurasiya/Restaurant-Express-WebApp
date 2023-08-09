@@ -59,7 +59,7 @@ def index(request):
     #cart-------------------------
     global logor
     logor=rlogo()
-    logor.img='logo1.png'
+    logor.img='RE.png'
 
     # ------------------------------------
     global ucart
@@ -89,7 +89,7 @@ def index(request):
     #slider-------------------------------------------------------------
     global slider1,slider2,slider3,sliders
     slider1=item()
-    slider1.img='slider/s1.jpg'
+    slider1.img='slider/nss2.jpg'
     slider2=item()
     slider2.img='slider/test1.jpg'
     slider3=item()
@@ -212,7 +212,7 @@ def index(request):
     global chef1,chef2,chef3,chef4,chefs
     chef1=item()
     chef1.name='Vicky Ratnani'
-    chef1.img='chef/1.jpg'
+    chef1.img='chef/chef4.jpg'
     chef1.det='Indian'
     chef1.skill1='Fish'
     chef1.skill2='Shrimp'
@@ -222,7 +222,7 @@ def index(request):
 
     chef2 = item()
     chef2.name = 'Romy Gill'
-    chef2.img = 'chef/2.jpg'
+    chef2.img = 'chef/chef1.jpg'
     chef2.det = 'Indian'
     chef2.skill1 = 'Rice'
     chef2.skill2 = 'Spaghetti'
@@ -232,7 +232,7 @@ def index(request):
 
     chef3=item()
     chef3.name='Sanjeev kumar'
-    chef3.img='chef/3.jpg'
+    chef3.img='chef/chef3.jpg'
     chef3.det='indian'
     chef3.skill1 = 'Cheese'
     chef3.skill2 = 'Sausages'
@@ -242,7 +242,7 @@ def index(request):
 
     chef4=item()
     chef4.name='Vineet Bhatia'
-    chef4.img='chef/4.jpg'
+    chef4.img='chef/chef2.jpg'
     chef4.det='Indian'
     chef4.skill1 = 'Cake'
     chef4.skill2 = 'Pie'
@@ -341,7 +341,7 @@ def home(request):
 def about(request):
     # =====================about
     aboutr = aboutd()
-    aboutr.name = 'Aayushmaan Restaurant'
+    aboutr.name = 'Restaurant Express'
     aboutr.img = 'about1.jpg'
     aboutr.det = 'The Right Ingredients for the Right Food.'
     aboutr.desc = 'Location: Ghaziabad'
@@ -365,7 +365,7 @@ def menu(request):
     offer.name='Get 50% off on Your First Order'
 
     menuslider=menuitem()
-    menuslider.img='slider/food_menu.jpg'
+    menuslider.img='menu6.jpg'
 
     menu1=menuitem()
     menu1.name='Paneer Delight'
@@ -2707,7 +2707,7 @@ def sindian(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'menuslider':menuslider})
 
-<<<<<<< HEAD
+
 def gallery(request):
     global otherpage
     check(request)
@@ -2778,9 +2778,9 @@ def add(request):
         pass1 = request.POST["pass1"]
         pass2 = request.POST["pass2"]
         dob = request.POST["dob"]
-        address = request.POST["address"]
-        city = request.POST["city"]
-        pin = request.POST["pin"]
+        # address = request.POST["address"]
+        # city = request.POST["city"]
+        # pin = request.POST["pin"]
         if pass1==pass2:
             if new_user.objects.filter(username=username).exists():
                 return render(request, 'register.html', {'namerror':"User Name Already Exist Please try another userName",'webd': webd, 'webds': webds,'logor':logor})
@@ -2790,7 +2790,7 @@ def add(request):
                 return render(request, 'register.html', {'phoneerror':"Phone No has already registerd",'webd': webd, 'webds': webds,'logor':logor})
             else:
                 newinfo = new_user(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2, dob=dob,
-                           address=address, city=city, pin=pin)
+                           )
                 new_user.user = request.user
                 newinfo.save()
                 return render(request, "login.html",{'webd':webd,'webds':webds,'imglogin':imglogin,'logor':logor})
@@ -2893,21 +2893,22 @@ def userorderlist(request):
         totalprice = totalprice + int(p.price)
         orders.append(x)
 
-    name = request.POST.get('name')
-    amount=1000
-    totalprice=totalprice-1
-    amount = (totalprice)*100
-    client = razorpay.Client(
-        auth=("rzp_test_fK6V4JrgIbcHdj", "JZdV8Tv1crpbhnZCTRRMKCj1"))
-    callback_url = 'http://'+ str(get_current_site(request))+"/payment/"
-    payment = client.order.create({'amount': amount, 'currency': 'INR',
-                                   'payment_capture': '1'})
-    order_id =payment['id']
-    print(callback_url)
+
     if orders==[]:
         print("Blank ")
         return render(request, 'order.html',{'webd': webd, 'webds': webds, 'otherpage': otherpage,'orders': orders,'ucart':ucart,'logor':logor})
     else:
+        name = request.POST.get('name')
+        amount = 1000
+        totalprice = totalprice - 1
+        amount = (totalprice) * 100
+        client = razorpay.Client(
+            auth=("rzp_test_fK6V4JrgIbcHdj", "JZdV8Tv1crpbhnZCTRRMKCj1"))
+        callback_url = 'http://' + str(get_current_site(request)) + "/payment/"
+        payment = client.order.create({'amount': amount, 'currency': 'INR',
+                                       'payment_capture': '1'})
+        order_id = payment['id']
+        print(callback_url)
         global cart1
         cart1 = "cart"
         print(cart1)
@@ -3164,6 +3165,4 @@ def admindelivered(request):
     else:
         print("post error")
         return render(request, 'adminorder.html', {'webd': webd, 'webds': webds, 'otherpage': otherpage,'adminempty': adminempty,'logor':logor})
-=======
 
->>>>>>> f39fa112b8a27cd18af1ae2ce572dcb57c288a22

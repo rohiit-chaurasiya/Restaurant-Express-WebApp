@@ -28,9 +28,7 @@ class new_user(models.Model):
     pass1=models.CharField(max_length=30)
     pass2= models.CharField(max_length=30)
     dob = models.CharField(max_length=15)
-    address= models.CharField(max_length=50)
-    city= models.CharField(max_length=50)
-    pin = models.CharField(max_length=12)
+
 
 class adminlogin(models.Model):
     username= models.CharField(max_length=30)

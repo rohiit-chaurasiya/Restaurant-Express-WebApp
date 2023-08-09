@@ -1,106 +1,122 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% load static %}
-    {% static "image" as baseUrl %}
+{% load static %}
+{% static "image" as baseUrl %}
 <!--===================================================================Navigation slider layout close ============================================= -->
 
-<div  class="container-fluid img-fluid" style="position:relative; background:url({{baseUrl}}/{{aboutr.img}}); margin-top:70px; height:auto; width:100%">
-<div class="container-fluid " style="position:relative;">
-                <div class="row">
-                <div class="about col-lg-6 mt-5">
-                <h3 >{{aboutr.name}}</h3>
+<div class="container-fluid img-fluid"
+     style="position:relative; background:url({{baseUrl}}/{{aboutr.img}}); margin-top:65px; height:auto; width:100%">
+    <div class="container-fluid" style="position:relative;">
+        <div class="row">
+            <div class="about col-lg-6 mt-5">
+                <h3>{{aboutr.name}}</h3>
                 <h2><strong>{{aboutr.det}}</strong></h2>
                 <span class="primary">{{aboutr.desc}}</span>
-            	</div>
-               </div>
-              <div class="row">
-                <div class="col-lg-9">
-                    <button class="btn" type="button" style="margin:25px; background-color:#1abc9c;border-radius:23px;font-weight: 700; font-size:24px;"><a href="{% url 'menu' %}" style="color:black">See all menu</a></button>
-                </div>
-             </div>
-         </div>
-</div><!--container close -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <button class="btn my-4" type="button"
+                        style="background-color:#1abc9c;border-radius:23px;font-weight: 700;">
+                    <a href="{% url 'menu' %}" style="color:black">See all menu</a></button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- =========================================================== slider navigation layout close ======================================================-->
 <div class="container mt-5 mb-5">
-<div class="row mt-5" >
-<div class="col-lg-6 col-md-6">
-<H6 style="font-weight:400; margin-top:10px; color:#1abc9c;">Processes</H6>
-<h1 style="font-size:50px; color:#FF0000; font-family: cookie,cursive; font-weight: 400; padding:0px;">How we work</h1>
-</div>
-</div>
-<div class="container">
-<div class="row mt-5">
-<div class="col-sm-3" style="padding-top:10px;">
-<img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-<H5 style="font-weight:700;"> FOOD SERVED HOT</H5>
-<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>
-</div><!-- column close -->
-<div class="col-sm-3" style="padding-top:10px">
-<img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px" >
-<H5 style=" font-weight:700;">AMPLE OPTIONS</H5>
-<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>
-</div><!-- column close -->
-<div class="col-sm-3" style="padding-top:10px;">
-<img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-<H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>
-<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>
-</div><!-- column close -->
-<div class="col-sm-3" style="padding-top:10px;">
-<img src="{% static 'image/logo/delivery.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-<H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>
-<span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>
-</div><!-- column close -->
-</div><!-- work row close-->
-</div><!-- work container close-->
+    <div class="row mt-5">
+        <div class="col-lg-6 col-md-6">
+            <h6 class="aboutProcess" style="font-weight:400; margin-top:10px; color:#1abc9c;">Processes</h6>
+            <h1 style="font-size:50px; color:#FF0000; font-family: cookie,cursive; font-weight: 400; padding:0px;">How
+                we work</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-sm-4"  align="center">
+                <img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style="font-weight:700;"> FOOD SERVED HOT</H5>
+                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Delicious Food Served Hot, Guaranteed to Satisfy!.</span>
+            </div><!-- column close -->
+            <div class="col-sm-4"  align="center">
+                <img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style=" font-weight:700;">AMPLE OPTIONS</H5>
+                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Indulge in our restaurant's ample options, where taste and variety come together to satisfy every craving!.</span>
+            </div><!-- column close -->
+            <div class="col-sm-4"  align="center">
+                <img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>
+                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Indulge in the finest flavors and craftmanship at our restaurant: Experience our enticing IN-HOUSE BREWERY!.</span>
+            </div><!-- column close -->
+<!--            <div class="col-sm-3" style="padding-top:10px;">-->
+<!--                <img src="{% static 'image/logo/delivery.svg' %}" class="img-fluid mb-4" height="50px" width="70px">-->
+<!--                <H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>-->
+<!--                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>-->
+<!--            </div>&lt;!&ndash; column close &ndash;&gt;-->
+        </div><!-- work row close-->
+    </div><!-- work container close-->
 </div>
 <!--======================================================== how we work close=======================================================================-->
 <!-- ======================================================  Our chefs section =====================================================================-->
 <div style="position:relative; background: #F5F5F5 url(image/chef/pattern.png);">
-<div class="container-fluid" style="position:relative;">
-<div class="row mt-5">
-<div class="col-lg-12">
-<h5 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px; margin-top:20px; margin-bottom:0PX;">Expert & Skillful
-</h5>
-<h1 align="center" style="font-size:50px; color:#FF0000; margin-top:10px; font-family: cookie,cursive; font-weight: 700;">Our Chefs</h1>
-</div> <!-- column close -->
-</div> <!-- container row close-->
-
-<div class="row mt-5">
-	{% for chef in chefs %}
-<div class="col-lg-3 col-md-3">
-<div class="card">
-<div class="card-body">
-<img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
-<h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">{{chef.name}}</h1>
-<h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">{{chef.det}}</h6>
-<ul class="mt-3">
-<li>{{chef.skill1}}</li>
-<li>{{chef.skill2}}</li>
-<li>{{chef.skill3}}</li>
-<li>{{chef.skill4}}</li>
-<li>{{chef.skill5}}</li>
-<br/>
-</ul>
-</div><!-- card body close-->
-</div><!-- main card close-->
-</div><!-- column close-->
-{% endfor %}
-</div>
-</div>
+    <div class="container-fluid" style="position:relative;">
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h5 align="center"
+                    style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px; margin-top:20px; margin-bottom:0PX;">
+                    Expert & Skillful
+                </h5>
+                <h1 align="center"
+                    style="font-size:50px; color:#FF0000; margin-top:10px; font-family: cookie,cursive; font-weight: 700;">
+                    Our Chefs</h1>
+            </div> <!-- column close -->
+        </div> <!-- container row close-->
+        <div class="container">
+        <div class="row justify-content-center mt-5" style="align-items: center">
+            {% for chef in chefs %}
+            <div class="col-12 col-lg-3 col-md-6 col-sm-8 align-self-center my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
+                        <h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">{{chef.name}}</h1>
+                        <h6 align="center"
+                            style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
+                            {{chef.det}}</h6>
+                        <ul class="mt-3">
+                            <li>{{chef.skill1}}</li>
+                            <li>{{chef.skill2}}</li>
+                            <li>{{chef.skill3}}</li>
+                            <li>{{chef.skill4}}</li>
+                            <li>{{chef.skill5}}</li>
+                            <br/>
+                        </ul>
+                    </div><!-- card body close-->
+                </div><!-- main card close-->
+            </div><!-- column close-->
+            {% endfor %}
+        </div>
+        </div>
+    </div>
 </div>
 <!----------------------------------------------------- chef close -------------------------------------------->
 
 <div class="container-fluid" style=" background-color:#1abc9c; padding:15px; margin-top:20px;">
-<div class="container">
-<div class="row mt-5">
-<div class="col-md-9"><h3 style="font-weight:700; font-size:24px; color:#FFFFFF;">Do You want to Contact with us. Then Don't Hesitate!</h3>
-</div><!-- discription table-->
-<div class="col-md-3"> 
-<button class="btn" type="button" style="background-color:#FFFFFF; border-radius:23px;font-weight:700; font-size:24px;">Contact Us Here</button> 
-</div><!-- discription data-->
-</div><!-- Discription list close-->
-</div>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-9">
+                <h3 style="font-weight:650; font-size:24px; color:#FFFFFF;">Do You want to Contact
+                with us. Then Don't Hesitate!</h3>
+            </div>
+            <div class="col-md-3">
+                <button class="btn" type="button"
+                        style="background-color:#FFFFFF; border-radius:23px;font-weight:700;">Contact Us
+                    Here
+                </button>
+            </div><!-- discription data-->
+        </div><!-- Discription list close-->
+    </div>
 </div>
 
 {% endblock %}
