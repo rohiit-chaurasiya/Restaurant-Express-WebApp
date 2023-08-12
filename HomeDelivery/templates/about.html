@@ -2,10 +2,10 @@
 {% block content %}
 {% load static %}
 {% static "image" as baseUrl %}
-<!--===================================================================Navigation slider layout close ============================================= -->
 
+<!--===================================================================About Me ============================================= -->
 <div class="container-fluid img-fluid"
-     style="position:relative; background:url({{baseUrl}}/{{aboutr.img}}); margin-top:65px; height:auto; width:100%">
+     style="position:relative; background:url({% static 'image/about.jpg' %}); margin-top:65px; height:auto; width:100%">
     <div class="container-fluid" style="position:relative;">
         <div class="row">
             <div class="about col-lg-6 mt-5">
@@ -24,13 +24,11 @@
     </div>
 </div>
 
-<!-- =========================================================== slider navigation layout close ======================================================-->
 <div class="container mt-5 mb-5">
     <div class="row mt-5">
         <div class="col-lg-6 col-md-6">
             <h6 class="aboutProcess" style="font-weight:400; margin-top:10px; color:#1abc9c;">Processes</h6>
-            <h1 style="font-size:50px; color:#FF0000; font-family: cookie,cursive; font-weight: 400; padding:0px;">How
-                we work</h1>
+            <h1 style="font-size:50px; color:#FF0000; font-family: cookie,cursive; font-weight: 400; padding:0px;">How we work</h1>
         </div>
     </div>
     <div class="container">
@@ -39,24 +37,19 @@
                 <img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
                 <H5 style="font-weight:700;"> FOOD SERVED HOT</H5>
                 <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Delicious Food Served Hot, Guaranteed to Satisfy!.</span>
-            </div><!-- column close -->
+            </div>
             <div class="col-sm-4"  align="center">
                 <img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
                 <H5 style=" font-weight:700;">AMPLE OPTIONS</H5>
                 <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Indulge in our restaurant's ample options, where taste and variety come together to satisfy every craving!.</span>
-            </div><!-- column close -->
+            </div>
             <div class="col-sm-4"  align="center">
                 <img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
                 <H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>
                 <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Indulge in the finest flavors and craftmanship at our restaurant: Experience our enticing IN-HOUSE BREWERY!.</span>
-            </div><!-- column close -->
-<!--            <div class="col-sm-3" style="padding-top:10px;">-->
-<!--                <img src="{% static 'image/logo/delivery.svg' %}" class="img-fluid mb-4" height="50px" width="70px">-->
-<!--                <H5 style="font-weight:700;">IN-HOUSE BREWERY</H5>-->
-<!--                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Intrinsicly incubate compelling experiences rather than cross functional catalysts for change.</span>-->
-<!--            </div>&lt;!&ndash; column close &ndash;&gt;-->
-        </div><!-- work row close-->
-    </div><!-- work container close-->
+            </div>
+        </div>
+    </div>
 </div>
 <!--======================================================== how we work close=======================================================================-->
 <!-- ======================================================  Our chefs section =====================================================================-->
@@ -114,8 +107,8 @@
                         style="background-color:#FFFFFF; border-radius:23px;font-weight:700;">Contact Us
                     Here
                 </button>
-            </div><!-- discription data-->
-        </div><!-- Discription list close-->
+            </div>
+        </div>
     </div>
 </div>
 

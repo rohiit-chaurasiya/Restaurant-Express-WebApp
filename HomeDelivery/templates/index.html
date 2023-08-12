@@ -70,19 +70,19 @@
         <div class="col-sm-4" align="center">
             <img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
             <H5 style="font-weight: 700; font-weight:700;"> FOOD SERVED HOT</H5>
-            <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Always food server hot.</span>
+            <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Delicious Food Served Hot, Guaranteed to Satisfy!.</span>
         </div><!-- column close -->
         <div class="col-sm-4" align="center">
             <img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
             <H5 style="font-weight: 700; font-weight:700;">AMPLE OPTIONS</H5>
             <span class="primary"
-                  style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Many Options </span>
+                  style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Indulge in our restaurant's ample options, where taste and variety come together to satisfy every craving!.</span>
         </div><!-- column close -->
         <div class="col-sm-4" align="center">
             <img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
             <H5 style="font-weight: 700; font-weight:700;">IN-HOUSE BREWERY</H5>
             <span class="primary"
-                  style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Brewery House</span>
+                  style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Indulge in the finest flavors and craftmanship at our restaurant: Experience our enticing IN-HOUSE BREWERY!.</span>
         </div><!-- column close -->
     </div><!-- work row close-->
 </div>
@@ -117,7 +117,6 @@
             <p class="hmname" style="font-family: cookie,cursive;font-weight: 400;"><b>Our Dessert
                 Menu</b></p>
         </div>
-        <!--<img src="{{baseUrl}}/{{smenu.img}}" class="img-fluid">-->
     </div>
 </div>
 <div class="container-fluid" style="position:absolute;background-color: #EBEBEB;">
@@ -141,7 +140,7 @@
                             baking.</i></p>
                     </div>
                     <div align="center">
-                        <a href="#" class="card-link">See More</a>
+                        <a href="{% url 'Burger' %}" class="card-link">See More</a>
                     </div>
                 </div>
             </div>
@@ -162,7 +161,7 @@
                             baking.</i></p>
                     </div>
                     <div align="center">
-                        <a href="#" class="card-link">See More</a>
+                        <a href="{% url 'Pastry' %}" class="card-link">See More</a>
                     </div>
                 </div>
             </div>
@@ -183,7 +182,7 @@
                             baking.</i></p>
                     </div>
                     <div align="center">
-                        <a href="#" class="card-link">See More</a>
+                        <a href="{% url 'Gulab_Jamun' %}" class="card-link">See More</a>
                     </div>
                 </div>
             </div>
@@ -204,82 +203,13 @@
                             baking.</i></p>
                     </div>
                     <div align="center">
-                        <a href="#" class="card-link">See More</a>
+                        <a href="{% url 'Poori' %}" class="card-link">See More</a>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-
-    <!--            <img style="padding:40px" src="{{baseUrl}}/{{mitem2.img}}" class="img-fluid">-->
-    <!--                <form action="additem"  method="post">-->
-    <!--                    {% csrf_token %}-->
-    <!--            <p style="color:red; font-size:45px; padding-right:40px; font-family:ppins; float:right;">Rs.{{mitem2.price}}</p>-->
-    <!--            <h2 style="padding-left:50px;" class="secondary">{{mitem2.name}}</h2>-->
-
-    <!--            <div  style="font-family:ppins; color:#bbb; text-transform:uppercase; letter-spacing:2px; padding-left:50px;"><p>-->
-    <!--                {{mitem1.det}}</p>-->
-    <!--            </div>-->
-    <!--              <input name="item_id" type="hidden" value="{{ mitem2.name }}" class="hidden"  required>-->
-    <!--                    <input name="price_id" type="hidden" value="{{ mitem2.price }}" class="hidden" required>-->
-    <!--                    <input name="login_id" type="hidden" value="{{ user }}" class="hidden" required>-->
-    <!--              <label for="cpass" style=" font-size:15px; padding-left:50px;">Quantity</label>-->
-    <!--              <input id="cpass" type="text"  name="qty" placeholder="Quantity" onkeyup="menuonly(this)" required style="width: 50px; font-size:10px;">-->
-    <!--          <button type="submit"  class="btn btn-success" style="margin-left:50px;">Buy Now</button>-->
-    <!--                </form>-->
-
-    <!--        <div class="col-lg-8 col-md-8 ml-auto">-->
-    <!--            <div class="menu">-->
-    <!--                -->
-    <!--                {% for item in items2 %}-->
-    <!--                <div class="col-lg-3 col-md-3  col-height btnn float-right my-3 mx-4">-->
-    <!--                    <span>-->
-    <!--                        <img src="{{baseUrl}}/{{item.img}}" class="img-fluid">-->
-    <!--                        <div style="clear:both">-->
-    <!--					    <h6 style="float:left">{{item.name}}</h6>-->
-    <!--			            <h6 style="float:right; color:red; font-size:18px; font-family:ppins; ">Rs.{{item.price}}</h6>&nbsp;-->
-    <!--                        </div>-->
-    <!--                    </span>-->
-    <!--              </div>-->
-    <!--                {% endfor %}-->
-    <!--                </div>-->
-    <!--              <div class="col-4 bg-success col-height">-->
-    <!--                <img src="{% static 'image/place.png' %}" class="img-fluid">-->
-    <!--              </div>-->
-    <!--              <div class="col-4 bg-success col-height">-->
-    <!--                <img src="{% static 'image/place.png' %}" class="img-fluid">-->
-    <!--              </div>-->
-    <!--            </div>-->
-
-    <!--            {% for item in items2 %}-->
-    <!--            <div class="row">-->
-    <!--                <div class="col-3">-->
-    <!--                    <img src="{% static 'image/place.png' %}" class="img-fluid">-->
-    <!--                </div>-->
-
-    <!--            </div>-->
-    <!--            {% endfor %}-->
-    <!--        </div>-->
-
-    <!--        <div class="col-lg-9 col-md-9 mt-5 " style=" background-color:#f8f9fa;">-->
-    <!--            <div class="menu">-->
-    <!--                {% for item in items2 %}-->
-    <!--                <div class=" col-lg-3 col-md-3 btnn">-->
-    <!--                   	  <span>-->
-    <!--                   	    <img src="{{baseUrl}}/{{item.img}}" class="img-fluid">-->
-    <!--						  <div style="clear:both">-->
-    <!--					  <h6 style="float:left">{{item.name}}</h6>-->
-    <!--			            <h6 style="float:right; color:red; font-size:18px; font-family:ppins; ">Rs.{{item.price}}</h6>&nbsp;-->
-    <!--						  </div>-->
-    <!--						  </span>-->
-    <!--                </div>-->
-    <!--                {% endfor %}-->
-    <!--                <button class="btn btn-danger " type="button"-->
-    <!--                        style="margin:25px; border-radius:23px;font-weight: 700; font-size:24px;"><a-->
-    <!--                        href="{% url 'menu' %}" style="color:#ffffff"> See all menu</a></button>-->
-    <!--            </div>-->
-    <!--        </div>-->
     <div>
         </br>
         </br>
@@ -306,16 +236,14 @@
                 </div>
                 <footer class="blockquote-footer">Restaurant<cite title="source-title">Express</cite>
                 </footer>
-            </div><!--column close-->
+            </div>
             {% endfor %}
 
-        </div><!-- row close-->
+        </div>
     </div>
-</div><!-- container close -->
+</div>
 <!-- =========================== DETAILS CLOSE ===========================================================================-->
 
-
-<!-- =============================Second menu layout close ================================================================-->
 
 
 <!-- =========================== Our services ============================================================================-->
@@ -379,8 +307,6 @@
 
 
 <!-- ================================ contact section layout =====================================================-->
-<!--<div style="border-top:solid #666666">-->
-<!--</div>-->
 
 <div class="container mt-5">
     <div class="row" style="margin-top:100px;">

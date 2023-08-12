@@ -355,7 +355,7 @@ def about(request):
         print(otherpage)
         return render(request,'about.html',{'aboutr':aboutr,'webds':webds,'webd':webd,'chefs':chefs,'otherpage':otherpage,'logor':logor})
     else:
-        return render(request, 'about.html', {'aboutr': aboutr, 'webds': webds, 'webd': webd, 'chefs': chefs,'logor':logor})
+        return render(request, 'about.html', {'aboutr':aboutr,'webds': webds, 'webd': webd, 'chefs': chefs,'logor':logor})
 
 def menu(request):
     global otherpage, menuslider
@@ -550,7 +550,7 @@ def menu(request):
     menu31 = menuitem()
     menu31.name = 'Sandwich'
     menu31.img = 'menu/breakfast/7.jpg'
-    menu31.det = 'o'
+    menu31.det = 'BREAKFAST'
     menu31.price = '200'
 
     menu32 = menuitem()
@@ -619,258 +619,60 @@ def menu(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'logor':logor,'menuslider':menuslider})
 
-def nindian(request):
+def Paratha(request):
 
     global otherpage,listname
     check(request)
-    listname="North Indian"
+    listname="Paratha"
 
     offer= offers()
     offer.name='Get 50% off on Your First Order'
 
     menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
+    menu1.name='Aloo Onion Paratha'
+    menu1.img='menu/paratha/1.jpg'
     menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu1.price='200'
 
     menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
+    menu2.name = 'Veg Kima Paratha'
+    menu2.img = 'menu/paratha/2.jpg'
     menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu2.price = '470'
 
     menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
+    menu3.name = 'Chilli Onion Paratha'
+    menu3.img = 'menu/paratha/3.jpg'
     menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu3.price = '265'
 
     menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
+    menu4.name = 'Plan Paratha '
+    menu4.img = 'menu/paratha/4.jpg'
+    menu4.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu4.price = '370'
 
     menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
+    menu5.name = 'Ajwan Paratha'
+    menu5.img = 'menu/paratha/5.jpg'
+    menu5.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu5.price = '450'
 
     menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
+    menu6.name = 'Onion Masala Paratha'
+    menu6.img = 'menu/paratha/6.jpg'
+    menu6.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu6.price = '200'
 
     menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
+    menu7.name = 'Kima Onion Paratha'
+    menu7.img = 'menu/paratha/7.jpg'
     menu7.det = 'd'
     menu7.price = '200'
 
-    menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
-    menu8.price = '200'
-
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
 
 
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -880,258 +682,66 @@ def nindian(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
 
-def chinese(request):
+def Poori(request):
 
     global otherpage ,listname
     check(request)
-    listname="Chinese"
+    listname="Poori"
 
     offer= offers()
     offer.name='Get 50% off on Your First Order'
 
     menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
+    menu1.name='Puffy Poori'
+    menu1.img='menu/poori/1.avif'
     menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu1.price='200'
 
     menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
+    menu2.name = 'Chola Poori'
+    menu2.img = 'menu/poori/2.avif'
     menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu2.price = '470'
 
     menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
+    menu3.name = 'Aloo Puri'
+    menu3.img = 'menu/poori/3.avif'
     menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu3.price = '265'
 
     menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
+    menu4.name = 'Paneer Poori'
+    menu4.img = 'menu/poori/4.avif'
+    menu4.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu4.price = '370'
 
     menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
+    menu5.name = 'Ragi Poori'
+    menu5.img = 'menu/poori/5.avif'
+    menu5.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu5.price = '450'
 
     menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
+    menu6.name = 'Palak Poori'
+    menu6.img = 'menu/poori/6.avif'
+    menu6.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu6.price = '200'
 
     menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
+    menu7.name = 'Beetroot Poori'
+    menu7.img = 'menu/poori/7.avif'
+    menu7.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu7.price = '200'
 
     menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
+    menu8.name = 'Kuttu Poori'
+    menu8.img = 'menu/poori/8.avif'
+    menu8.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu8.price = '200'
 
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
 
 
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -1141,258 +751,71 @@ def chinese(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
 
-def biryani(request):
+def Pure_Veg(request):
 
     global otherpage,listname
     check(request)
-    listname="Biryani"
+    listname="Pure_Veg"
 
     offer= offers()
     offer.name='Get 50% off on Your First Order'
 
     menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
+    menu1.name='Masala Channa'
+    menu1.img='menu/pure_veg/1.avif'
     menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu1.price='200'
 
     menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
+    menu2.name = 'Protein-Packed Diet'
+    menu2.img = 'menu/pure_veg/2.avif'
     menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu2.price = '470'
 
     menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
+    menu3.name = ' Pommes Gratin'
+    menu3.img = 'menu/pure_veg/3.avif'
     menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu3.price = '265'
 
     menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
+    menu4.name = 'Vegetarian Burritos'
+    menu4.img = 'menu/pure_veg/4.avif'
+    menu4.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu4.price = '370'
 
     menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
+    menu5.name = 'Vegetarian Nargisi Kofta'
+    menu5.img = 'menu/pure_veg/5.avif'
+    menu5.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu5.price = '450'
 
     menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
+    menu6.name = ' Paneer Kali Mirch'
+    menu6.img = 'menu/pure_veg/6.avif'
+    menu6.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu6.price = '200'
 
     menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
+    menu7.name = 'Vegetarian Khow Suey'
+    menu7.img = 'menu/pure_veg/7.avif'
+    menu7.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu7.price = '200'
 
     menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
+    menu8.name = 'Matar Ka Dulma'
+    menu8.img = 'menu/pure_veg/8.avif'
+    menu8.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu8.price = '200'
 
     menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
+    menu9.name = 'Vegetable Lasagne '
+    menu9.img = 'menu/pure_veg/9.avif'
+    menu9.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu9.price = '200'
 
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
 
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
-
-
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -1402,790 +825,7 @@ def biryani(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
 
-def mithai(request):
-
-    global otherpage,listname
-    check(request)
-    listname="Mithai"
-
-    offer= offers()
-    offer.name='Get 50% off on Your First Order'
-
-    menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
-    menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu1.price='200'
-
-    menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
-    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu2.price = '470'
-
-    menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
-    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu3.price = '265'
-
-    menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
-    menu4.price = '370'
-
-    menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
-    menu5.price = '450'
-
-    menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
-    menu6.price = '200'
-
-    menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
-    menu7.price = '200'
-
-    menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
-    menu8.price = '200'
-
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
-
-
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
-    webd = [awebd]
-    webds = [webd1, webd2]
-    if usercheck == True:
-        print("if")
-        print(otherpage)
-        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
-    else:
-        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
-
-def pizza(request):
-
-    global otherpage,listname
-    check(request)
-    listname='Pizza'
-
-    offer= offers()
-    offer.name='Get 50% off on Your First Order'
-
-    menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
-    menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu1.price='200'
-
-    menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
-    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu2.price = '470'
-
-    menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
-    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu3.price = '265'
-
-    menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
-    menu4.price = '370'
-
-    menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
-    menu5.price = '450'
-
-    menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
-    menu6.price = '200'
-
-    menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
-    menu7.price = '200'
-
-    menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
-    menu8.price = '200'
-
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
-
-
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
-    webd = [awebd]
-    webds = [webd1, webd2]
-    if usercheck == True:
-        print("if")
-        print(otherpage)
-        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
-    else:
-        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
-
-def desserts(request):
-
-    global otherpage,listname
-    check(request)
-    listname='Desserts'
-
-    offer= offers()
-    offer.name='Get 50% off on Your First Order'
-
-    menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
-    menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu1.price='200'
-
-    menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
-    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu2.price = '470'
-
-    menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
-    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
-    menu3.price = '265'
-
-    menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
-    menu4.price = '370'
-
-    menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
-    menu5.price = '450'
-
-    menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
-    menu6.price = '200'
-
-    menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
-    menu7.price = '200'
-
-    menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
-    menu8.price = '200'
-
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
-
-
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
-    webd = [awebd]
-    webds = [webd1, webd2]
-    if usercheck == True:
-        print("if")
-        print(otherpage)
-        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
-    else:
-        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
-
-def burger(request):
+def Burger(request):
 
     global otherpage,listname
     check(request)
@@ -2195,248 +835,194 @@ def burger(request):
     offer.name='Get 50% off on Your First Order'
 
     menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
+    menu1.name='Aloo Tikki Burger'
+    menu1.img='menu/burger/1.avif'
     menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu1.price='200'
 
     menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
-    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu2.name = 'Paneer Masala Burger'
+    menu2.img = 'menu/burger/2.avif'
+    menu2.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu2.price = '470'
 
     menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
-    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu3.name = 'Chicken Seekh Burger'
+    menu3.img = 'menu/burger/2.avif'
+    menu3.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu3.price = '265'
 
     menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
+    menu4.name = 'Tandoori Tikka Burger'
+    menu4.img = 'menu/burger/3.avif'
+    menu4.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu4.price = '370'
 
     menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
+    menu5.name = 'Chana Chaat Burger'
+    menu5.img = 'menu/burger/4.avif'
+    menu5.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu5.price = '450'
 
     menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
+    menu6.name = 'Butter Chicken Burger'
+    menu6.img = 'menu/burger/5.avif'
+    menu6.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu6.price = '200'
 
     menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
+    menu7.name = 'Masala Vada Burger'
+    menu7.img = 'menu/burger/6.avif'
+    menu7.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu7.price = '200'
 
     menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
+    menu8.name = 'Chole Bhature Burger'
+    menu8.img = 'menu/burger/7.avif'
+    menu8.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu8.price = '200'
 
     menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
+    menu9.name = 'Veggie Kebab Burger'
+    menu9.img = 'menu/burger/8.avif'
+    menu9.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu9.price = '200'
 
     menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
+    menu10.name = 'Butter Masala Burger'
+    menu10.img = 'menu/burger/9.avif'
+    menu10.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu10.price = '200'
 
     menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
+    menu11.name = 'Pav Bhaji Burger'
+    menu11.img = 'menu/burger/10.avif'
+    menu11.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu11.price = '200'
 
     menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
+    menu12.name = 'Malai Kofta Burger'
+    menu12.img = 'menu/burger/11.avif'
+    menu12.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu12.price = '200'
 
     menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
+    menu13.name = 'Palak Paneer Burger'
+    menu13.img = 'menu/burger/12.avif'
+    menu13.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu13.price = '200'
 
     menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
+    menu14.name = 'Keema Pav Burger'
+    menu14.img = 'menu/burger/13.avif'
+    menu14.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu14.price = '200'
 
     menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
+    menu15.name = 'Achari Chicken Burger'
+    menu15.img = 'menu/burger/14.avif'
+    menu15.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu15.price = '200'
 
     menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
+    menu16.name = 'Rajma Galouti Burger'
+    menu16.img = 'menu/burger/15.avif'
+    menu16.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu16.price = '200'
 
     menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
+    menu17.name = 'Pani Puri Burger'
+    menu17.img = 'menu/burger/16.avif'
+    menu17.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu17.price = '200'
 
     menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
+    menu18.name = 'Masala Omelette Burger'
+    menu18.img = 'menu/burger/17.avif'
+    menu18.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu18.price = '200'
 
     menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
+    menu19.name = 'Samosa Chaat Burger'
+    menu19.img = 'menu/burger/18.avif'
+    menu19.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu19.price = '200'
 
     menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
+    menu20.name = 'Mutton Biryani Burger'
+    menu20.img = 'menu/burger/19.avif'
+    menu20.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu20.price = '200'
 
     menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
+    menu21.name = 'Vada Pav Burger'
+    menu21.img = 'menu/burger/20.avif'
+    menu21.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu21.price = '200'
 
     menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
+    menu22.name = 'Kaju Paneer Burger'
+    menu22.img = 'menu/burger/21.avif'
+    menu22.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu22.price = '200'
 
     menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
+    menu23.name = 'Fish Amritsari Burger'
+    menu23.img = 'menu/burger/22.avif'
+    menu23.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu23.price = '200'
 
     menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
+    menu24.name = 'Manchurian Burger'
+    menu24.img = 'menu/burger/23.avif'
+    menu24.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu24.price = '200'
 
     menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
+    menu25.name = 'Mushroom Burger'
+    menu25.img = 'menu/burger/25.avif'
+    menu25.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu25.price = '200'
 
     menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
+    menu26.name = 'Pudina Chicken Burger'
+    menu26.img = 'menu/burger/26.avif'
+    menu26.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu26.price = '200'
 
     menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
+    menu27.name = 'Tikka Masala Burger'
+    menu27.img = 'menu/burger/27.avif'
+    menu27.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu27.price = '200'
 
     menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
+    menu28.name = 'Methi Thepla Burger'
+    menu28.img = 'menu/burger/28.avif'
+    menu28.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu28.price = '200'
 
     menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
+    menu29.name = 'Chettinad Chicken Burger'
+    menu29.img = 'menu/burger/29.avif'
+    menu29.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu29.price = '200'
 
     menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
+    menu30.name = 'Chai-Spiced Burger'
+    menu30.img = 'menu/burger/30.jpg'
+    menu30.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu30.price = '200'
 
     menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
+    menu31.name = 'Rasgulla Dessert Burger'
+    menu31.img = 'menu/burger/31.jpg'
+    menu31.det = 'INDULGE IN FLAVORS THAT PAINT JOY ON YOUR TASTE BUDS.'
     menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
 
 
     menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -2446,258 +1032,306 @@ def burger(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
 
-def sindian(request):
+def Noodles(request):
 
     global otherpage,listname
     check(request)
-    listname="South Indian"
+    listname='Noodles'
 
     offer= offers()
     offer.name='Get 50% off on Your First Order'
 
     menu1=menuitem()
-    menu1.name='Healthy Omelette'
-    menu1.img='menu/breakfast/1.jpg'
+    menu1.name='Chana Noodle'
+    menu1.img='menu/noodles/1.avif'
     menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu1.price='200'
 
     menu2 = menuitem()
-    menu2.name = 'Fried Eggs with Bread'
-    menu2.img = 'menu/breakfast/2.jpg'
+    menu2.name = 'Hakka Noodle'
+    menu2.img = 'menu/noodles/2.avif'
     menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu2.price = '470'
 
     menu3 = menuitem()
-    menu3.name = 'Cheese Croissant'
-    menu3.img = 'menu/breakfast/2.jpg'
+    menu3.name = 'Vermicelli Upma Noodle'
+    menu3.img = 'menu/noodles/3.avif'
+    menu3.det = 'Elevate your senses with every delectable bite.'
+    menu3.price = '265'
+
+    menu4 = menuitem()
+    menu4.name = 'Poha Noodles'
+    menu4.img = 'menu/noodles/4.avif'
+    menu4.det = 'Elevate your senses with every delectable bite.'
+    menu4.price = '370'
+
+    menu5 = menuitem()
+    menu5.name = 'Sevai Noodles'
+    menu5.img = 'menu/noodles/5.avif'
+    menu5.det = 'Elevate your senses with every delectable bite.'
+    menu5.price = '450'
+
+    menu6 = menuitem()
+    menu6.name = 'Jalebi Noodle'
+    menu6.img = 'menu/noodles/6.avif'
+    menu6.det = 'Elevate your senses with every delectable bite.'
+    menu6.price = '200'
+
+    menu7 = menuitem()
+    menu7.name = 'Khar Puli Noodle'
+    menu7.img = 'menu/noodles/7.avif'
+    menu7.det = 'Elevate your senses with every delectable bite.'
+    menu7.price = '200'
+
+    menu8 = menuitem()
+    menu8.name = 'Thukpa Noodle'
+    menu8.img = 'menu/noodles/8.avif'
+    menu8.det = 'Elevate your senses with every delectable bite.'
+    menu8.price = '200'
+
+    menu9 = menuitem()
+    menu9.name = 'Lukhmi Noodle'
+    menu9.img = 'menu/noodles/9.avif'
+    menu9.det = 'Elevate your senses with every delectable bite.'
+    menu9.price = '200'
+
+    menu10 = menuitem()
+    menu10.name = 'Sheer Khurma Noodle'
+    menu10.img = 'menu/noodles/10.avif'
+    menu10.det = 'Elevate your senses with every delectable bite.'
+    menu10.price = '200'
+
+    menu11= menuitem()
+    menu11.name = 'Coca Noodle'
+    menu11.img = 'menu/noodles/11.avif'
+    menu11.det = 'Elevate your senses with every delectable bite.'
+    menu11.price = '200'
+
+    menu12 = menuitem()
+    menu12.name = 'Instant Noodle'
+    menu12.img = 'menu/noodles/12.avif'
+    menu12.det = 'Elevate your senses with every delectable bite.'
+    menu12.price = '200'
+
+    menu13 = menuitem()
+    menu13.name = 'Frozen Noodle'
+    menu13.img = 'menu/noodles/13.avif'
+    menu13.det = 'Elevate your senses with every delectable bite.'
+    menu13.price = '200'
+
+    menu14 = menuitem()
+    menu14.name = 'Cup Noodle'
+    menu14.img = 'menu/noodles/14.avif'
+    menu14.det = 'Elevate your senses with every delectable bite.'
+    menu14.price = '200'
+
+
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14]
+    webd = [awebd]
+    webds = [webd1, webd2]
+    if usercheck == True:
+        print("if")
+        print(otherpage)
+        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
+    else:
+        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
+
+def Pizza(request):
+
+    global otherpage,listname
+    check(request)
+    listname='Pizza'
+
+    offer= offers()
+    offer.name='Get 50% off on Your First Order'
+
+    menu1=menuitem()
+    menu1.name='Tandoori Tikka Pizza'
+    menu1.img='menu/pizza/1.jpg'
+    menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu1.price='200'
+
+    menu2 = menuitem()
+    menu2.name = 'Paneer Makhani Pizza'
+    menu2.img = 'menu/pizza/2.jpg'
+    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu2.price = '470'
+
+    menu3 = menuitem()
+    menu3.name = 'Butter Chicken Pizza'
+    menu3.img = 'menu/pizza/3.jpg'
     menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
     menu3.price = '265'
 
     menu4 = menuitem()
-    menu4.name = 'a'
-    menu4.img = 'menu/breakfast/3.jpg'
-    menu4.det = 'a'
+    menu4.name = 'Mumbai Masala Pizza'
+    menu4.img = 'menu/pizza/4.jpg'
+    menu4.det = "IN EVERY RECIPE, THERE'S A STORY WAITING TO BE SAVORED."
     menu4.price = '370'
 
     menu5 = menuitem()
-    menu5.name = 'b'
-    menu5.img = 'menu/breakfast/4.jpg'
-    menu5.det = 'b'
+    menu5.name = 'Spicy Vada Pizzetta'
+    menu5.img = 'menu/pizza/5.jpg'
+    menu5.det = "IN EVERY RECIPE, THERE'S A STORY WAITING TO BE SAVORED."
     menu5.price = '450'
 
     menu6 = menuitem()
-    menu6.name = 'c'
-    menu6.img = 'menu/breakfast/5.jpg'
-    menu6.det = 'c'
+    menu6.name = 'Chaat Crunch Pizza'
+    menu6.img = 'menu/pizza/6.jpg'
+    menu6.det = "IN EVERY RECIPE, THERE'S A STORY WAITING TO BE SAVORED."
     menu6.price = '200'
 
     menu7 = menuitem()
-    menu7.name = 'd'
-    menu7.img = 'menu/breakfast/6.jpg'
-    menu7.det = 'd'
+    menu7.name = 'Palak Paneer Pizza'
+    menu7.img = 'menu/pizza/7.jpg'
+    menu7.det = "IN EVERY RECIPE, THERE'S A STORY WAITING TO BE SAVORED."
     menu7.price = '200'
 
     menu8 = menuitem()
-    menu8.name = 'e'
-    menu8.img = 'menu/breakfast/7.jpg'
-    menu8.det = 'e'
+    menu8.name = 'Coconut Curry Pizza'
+    menu8.img = 'menu/pizza/8.jpg'
+    menu8.det = "IN EVERY RECIPE, THERE'S A STORY WAITING TO BE SAVORED."
     menu8.price = '200'
 
-    menu9 = menuitem()
-    menu9.name = 'f'
-    menu9.img = 'menu/breakfast/8.jpg'
-    menu9.det = 'f'
-    menu9.price = '200'
-
-    menu10 = menuitem()
-    menu10.name = 'g'
-    menu10.img = 'menu/desserts/1.jpg'
-    menu10.det = 'g'
-    menu10.price = '200'
-
-    menu11= menuitem()
-    menu11.name = 'h'
-    menu11.img = 'menu/desserts/2.jpg'
-    menu11.det = 'h'
-    menu11.price = '200'
-
-    menu12 = menuitem()
-    menu12.name = 'i'
-    menu12.img = 'menu/desserts/3.jpg'
-    menu12.det = 'i'
-    menu12.price = '200'
-
-    menu13 = menuitem()
-    menu13.name = 'j'
-    menu13.img = 'menu/desserts/4.jpg'
-    menu13.det = 'j'
-    menu13.price = '200'
-
-    menu14 = menuitem()
-    menu14.name = 'k'
-    menu14.img = 'menu/desserts/5.jpg'
-    menu14.det = 'k'
-    menu14.price = '200'
-
-    menu15 = menuitem()
-    menu15.name = 'l'
-    menu15.img = 'menu/desserts/6.jpg'
-    menu15.det = 'l'
-    menu15.price = '200'
-
-    menu16 = menuitem()
-    menu16.name = 'm'
-    menu16.img = 'menu/desserts/7.jpg'
-    menu16.det = 'm'
-    menu16.price = '200'
-
-    menu17 = menuitem()
-    menu17.name = 'n'
-    menu17.img = 'menu/desserts/8.jpg'
-    menu17.det = 'n'
-    menu17.price = '200'
-
-    menu18 = menuitem()
-    menu18.name = 'o'
-    menu18.img = 'menu/pizza/1.jpg'
-    menu18.det = 'o'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'p'
-    menu19.img = 'menu/pizza/2.jpg'
-    menu19.det = 'p'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'q'
-    menu20.img = 'menu/pizza/3.jpg'
-    menu20.det = 'q'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'r'
-    menu21.img = 'menu/pizza/4.jpg'
-    menu21.det = 'r'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 's'
-    menu22.img = 'menu/pizza/4.jpg'
-    menu22.det = 's'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 't'
-    menu23.img = 'menu/pizza/5.jpg'
-    menu23.det = 't'
-    menu23.price = '20'
-
-    menu24 = menuitem()
-    menu24.name = 'u'
-    menu24.img = 'menu/pizza/6.jpg'
-    menu24.det = 'u'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'v'
-    menu25.img = 'menu/pizza/7.jpg'
-    menu25.det = 'v'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'w'
-    menu26.img = 'menu/pizza/8.jpg'
-    menu26.det = 'w'
-    menu26.price = '200'
-
-    menu27= menuitem()
-    menu27.name = 'x'
-    menu27.img = 'menu/salad/1.jpg'
-    menu27.det = 'x'
-    menu27.price = '200'
-
-    menu28 = menuitem()
-    menu28.name = 'y'
-    menu28.img = 'menu/salad/2.jpg'
-    menu28.det = 'y'
-    menu28.price = '200'
-
-    menu29 = menuitem()
-    menu29.name = 'm'
-    menu29.img = 'menu/desserts/7.jpg'
-    menu29.det = 'm'
-    menu29.price = '200'
-
-    menu30 = menuitem()
-    menu30.name = 'n'
-    menu30.img = 'menu/desserts/8.jpg'
-    menu30.det = 'n'
-    menu30.price = '200'
-
-    menu31 = menuitem()
-    menu31.name = 'o'
-    menu31.img = 'menu/pizza/1.jpg'
-    menu31.det = 'o'
-    menu31.price = '200'
-
-    menu32 = menuitem()
-    menu32.name = 'p'
-    menu32.img = 'menu/pizza/2.jpg'
-    menu32.det = 'p'
-    menu32.price = '200'
-
-    menu33 = menuitem()
-    menu33.name = 'q'
-    menu33.img = 'menu/pizza/3.jpg'
-    menu33.det = 'q'
-    menu33.price = '200'
-
-    menu34 = menuitem()
-    menu34.name = 'r'
-    menu34.img = 'menu/pizza/4.jpg'
-    menu34.det = 'r'
-    menu34.price = '200'
-
-    menu35 = menuitem()
-    menu35.name = 's'
-    menu35.img = 'menu/pizza/4.jpg'
-    menu35.det = 's'
-    menu35.price = '200'
-
-    menu36 = menuitem()
-    menu36.name = 't'
-    menu36.img = 'menu/pizza/5.jpg'
-    menu36.det = 't'
-    menu36.price = '200'
-
-    menu37 = menuitem()
-    menu37.name = 'u'
-    menu37.img = 'menu/pizza/6.jpg'
-    menu37.det = 'u'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'v'
-    menu38.img = 'menu/pizza/7.jpg'
-    menu38.det = 'v'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'w'
-    menu39.img = 'menu/pizza/8.jpg'
-    menu39.det = 'w'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'x'
-    menu40.img = 'menu/salad/1.jpg'
-    menu40.det = 'x'
-    menu40.price = '200'
 
 
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8]
+    webd = [awebd]
+    webds = [webd1, webd2]
+    if usercheck == True:
+        print("if")
+        print(otherpage)
+        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
+    else:
+        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
+
+def Gulab_Jamun(request):
+
+    global otherpage,listname
+    check(request)
+    listname="Gulab_Jamun"
+
+    offer= offers()
+    offer.name='Get 50% off on Your First Order'
+
+    menu1=menuitem()
+    menu1.name='Kala Jamun'
+    menu1.img='menu/gulab_jamun/1.avif'
+    menu1.det='LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu1.price='200'
+
+    menu2 = menuitem()
+    menu2.name = 'Dry Gulab Jamun'
+    menu2.img = 'menu/gulab_jamun/8.avif'
+    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu2.price = '470'
+
+    menu3 = menuitem()
+    menu3.name = 'Kesari Gulab Jamun'
+    menu3.img = 'menu/gulab_jamun/2.avif'
+    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu3.price = '265'
+
+    menu4 = menuitem()
+    menu4.name = 'Bread Gulab Jamun'
+    menu4.img = 'menu/gulab_jamun/3.avif'
+    menu4.det = 'LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu4.price = '370'
+
+    menu5 = menuitem()
+    menu5.name = 'Milk Gulab Jamun'
+    menu5.img = 'menu/gulab_jamun/4.avif'
+    menu5.det = 'LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu5.price = '450'
+
+    menu6 = menuitem()
+    menu6.name = 'Chocolate Gulab Jamun'
+    menu6.img = 'menu/gulab_jamun/5.avif'
+    menu6.det = 'LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu6.price = '200'
+
+    menu7 = menuitem()
+    menu7.name = 'Mango Gulab Jamun'
+    menu7.img = 'menu/gulab_jamun/6.avif'
+    menu7.det = 'LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu7.price = '200'
+
+    menu8 = menuitem()
+    menu8.name = 'Stuffed Gulab Jamun'
+    menu8.img = 'menu/gulab_jamun/7.avif'
+    menu8.det = 'LIFE IS SWEETER WITH A SPRINKLE OF INDULGENCE.'
+    menu8.price = '200'
+
+
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8]
+    webd = [awebd]
+    webds = [webd1, webd2]
+    if usercheck == True:
+        print("if")
+        print(otherpage)
+        return render(request,'menu.html',{'menus':menus,'offer':offer,'webd':webd,'webds':webds,'otherpage':otherpage,'listname':listname,'logor':logor,'menuslider':menuslider})
+    else:
+        return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'logor':logor,'menuslider':menuslider})
+
+def Pastry(request):
+
+    global otherpage,listname
+    check(request)
+    listname="Pastry"
+
+    offer= offers()
+    offer.name='Get 50% off on Your First Order'
+
+    menu1=menuitem()
+    menu1.name='Strawberry Pastry'
+    menu1.img='menu/pastry/1.jpg'
+    menu1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu1.price='200'
+
+    menu2 = menuitem()
+    menu2.name = 'Butterscotch Pastry'
+    menu2.img = 'menu/pastry/2.jpg'
+    menu2.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu2.price = '470'
+
+    menu3 = menuitem()
+    menu3.name = 'Truffle Pastry'
+    menu3.img = 'menu/pastry/8.jpg'
+    menu3.det = 'FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+    menu3.price = '265'
+
+    menu4 = menuitem()
+    menu4.name = 'Pista Pastry'
+    menu4.img = 'menu/pastry/3.jpg'
+    menu4.det = 'Life is batter with pastries.'
+    menu4.price = '370'
+
+    menu5 = menuitem()
+    menu5.name = 'Blueberry Pastry'
+    menu5.img = 'menu/pastry/4.jpg'
+    menu5.det = 'Life is batter with pastries.'
+    menu5.price = '450'
+
+    menu6 = menuitem()
+    menu6.name = 'Vanilla Velvet Pastry'
+    menu6.img = 'menu/pastry/5.jpg'
+    menu6.det = 'Life is batter with pastries.'
+    menu6.price = '200'
+
+    menu7 = menuitem()
+    menu7.name = 'Raspberry Decadence Pastry'
+    menu7.img = 'menu/pastry/6.jpg'
+    menu7.det = 'Life is batter with pastries.'
+    menu7.price = '200'
+
+    menu8 = menuitem()
+    menu8.name = 'Almond Elegance Pastry'
+    menu8.img = 'menu/pastry/7.jpg'
+    menu8.det = 'Life is batter with pastries.'
+    menu8.price = '200'
+
+
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -2712,28 +1346,16 @@ def gallery(request):
     global otherpage
     check(request)
 
-    gallery=gallery1()
-    gallery.name='Gallery'
-    gallery.img='slider/food_menu.jpg'
-    gallery.det='See what I do'
 
-    gallery2=gallery1()
-    gallery2.name='Our Restaurant'
-    gallery2.img='det/1.jpg'
 
-    gallery3 = gallery1()
-    gallery3.name = 'Our Food'
-    gallery3.img = 'det/2.jpg'
-
-    gallerys=[gallery2,gallery3]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck==True:
         print(otherpage)
-        return render(request,'gallery.html',{'gallery':gallery,'gallerys':gallerys,'webd':webd,'webds':webds,'otherpage':otherpage,'logor':logor})
+        return render(request,'gallery.html',{'gallery':gallery,'webd':webd,'webds':webds,'otherpage':otherpage,'logor':logor})
     else:
         return render(request, 'gallery.html',
-                      {'gallery': gallery, 'gallerys': gallerys, 'webd': webd, 'webds': webds,'logor':logor})
+                      {'gallery': gallery, 'webd': webd, 'webds': webds,'logor':logor})
 
 def page(request):
     global imglogin

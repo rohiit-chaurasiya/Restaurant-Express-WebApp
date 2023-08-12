@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-*g=u%*=f35#hdj**31-yzw4giv*9-rf)5-(z+kihn5afoyjln5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [',vercel.app','127.0.0.1']
 # "127.0.0.1", "192.168.1.6","localhost"
 
 # Application definition
@@ -96,10 +97,26 @@ DATABASES = {
         'OPTIONS': {
             'autocommit': True,
         },
-
-
     }
 }
+
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+# DATABASES['default']['OPTIONS']['charset'] = 'utf8mb4'
+# del DATABASES['default']['OPTIONS']['sslmode']
+# DATABASES['default']['OPTIONS']['ssl'] =  {'ca': os.environ.get('MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem')}
+
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': os.environ.get('DB_NAME'),
+#     'HOST': os.environ.get('DB_HOST'),
+#     'PORT': os.environ.get('DB_PORT'),
+#     'USER': os.environ.get('DB_USER'),
+#     'PASSWORD': os.environ.get('DB_PASSWORD'),
+#     'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
+#   }
+# }
+
 
 
 
@@ -147,7 +164,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build','assets')
+STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
