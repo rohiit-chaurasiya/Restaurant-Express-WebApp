@@ -6,7 +6,9 @@ Django==4.2.4
 django-active-link==0.1.8
 idna==3.4
 mysqlclient==2.2.0
+psycopg2-binary==2.9.7
 PyMySQL==1.1.0
+python-decouple==3.8
 razorpay==1.4.1
 requests==2.31.0
 sqlparse==0.4.4
