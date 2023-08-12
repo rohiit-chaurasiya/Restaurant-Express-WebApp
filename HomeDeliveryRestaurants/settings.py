@@ -87,31 +87,20 @@ WSGI_APPLICATION = 'HomeDeliveryRestaurants.wsgi.application'
     }
 }'''
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'restaurants',
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
-#         'USER': 'root',
-#         'PASSWORD': 'Kiet9211',
-#         'OPTIONS': {
-#             'autocommit': True,
-#         },
-#     }
-# }
-
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': os.environ.get('DB_NAME'),
-    'HOST': os.environ.get('DB_HOST'),
-    'PORT': os.environ.get('DB_PORT'),
-    'USER': os.environ.get('DB_USER'),
-    'PASSWORD': os.environ.get('DB_PASSWORD'),
-    'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'restaurants',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'Kiet9211',
+        'OPTIONS': {
+            'autocommit': True,
+        },
+    }
 }
+
 
 
 
@@ -180,7 +169,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
-STATIC_ROOT = BASE_DIR / 'staticfiles_build' / 'static'
+STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
