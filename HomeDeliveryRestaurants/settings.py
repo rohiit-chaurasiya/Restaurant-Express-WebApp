@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
-from decouple import config
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-*g=u%*=f35#hdj**31-yzw4giv*9-rf)5-(z+kihn5afoyjln5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [',vercel.app','127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1']
 # "127.0.0.1", "192.168.1.6","localhost"
 
 # Application definition
