@@ -3,7 +3,8 @@
 ### Live Here- http://restaurantexpress.pythonanywhere.com/
 ![hm1](https://github.com/RohitAayushmaan/HomeDeliveryRestaurants/assets/52812829/789a30cd-e618-454f-baa7-ec8fc6c74611)
 
-"HomeDeliveryRestaurants" is a web-based food ordering application developed using the Django framework. 
+
+#### **"Restaurant-Express-WebApp"*8 is a web-based food ordering application developed using the Django framework. 
 
 For users, developed an intuitive interface to explore various restaurant menus, select items, and place orders. It also provide a Cart system that enables users to make a list of selected food items before finalizing their orders. Once the selection is complete, users can proceed to place their orders.
 
