@@ -1,4 +1,4 @@
-# HomeDeliveryRestaurants
+# Restaurant-Express-WebApp
 
 ### Live Here- http://restaurantexpress.pythonanywhere.com/
 ![hm1](https://github.com/RohitAayushmaan/HomeDeliveryRestaurants/assets/52812829/789a30cd-e618-454f-baa7-ec8fc6c74611)
