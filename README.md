@@ -7,7 +7,7 @@
 
 
 
-#### **"Restaurant-Express-WebApp"** is a web-based food ordering application developed using the Django framework. 
+#### **"Restaurant-Express-WebApp"** is a web-based food ordering application developed using the Django framework.  
 
 For users, developed an intuitive interface to explore various restaurant menus, select items, and place orders. It also provide a Cart system that enables users to make a list of selected food items before finalizing their orders. Once the selection is complete, users can proceed to place their orders.
 
