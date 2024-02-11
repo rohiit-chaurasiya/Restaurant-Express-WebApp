@@ -17,7 +17,7 @@
 
 
 ## Repository Structure
-
+```
 .
 └── Restaurant-Express-WebApp
     ├── .env
@@ -89,7 +89,7 @@
                 ├── poori
                 ├── pure_veg
                 └── salad
-
+```
 
 
 
