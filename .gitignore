@@ -1,0 +1,4 @@
+*.idea
+.idea
+home
+*__pycache__
