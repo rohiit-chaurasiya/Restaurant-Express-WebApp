@@ -1,46 +1,64 @@
 # Restaurant-Express-WebApp
 
-## Live Here- http://restaurantexpress.pythonanywhere.com/
+##### Live Here- http://restaurantexpress.pythonanywhere.com/
+
+### Welcome to Let's! This web application allows users to explore restaurant menus, select items, and place orders.
+
+# Features
+ - Users can explore various restaurant menus.
+ - They can select items from the menus.
+ - Users can add selected items to their Cart system.
+ - The Cart system allows users to review and modify their selected items before finalizing their orders.
+ - Once satisfied with their selection, users can proceed to place their orders.
+ - Developed an admin page accessible only to administrators.
+ - Administrators have full control (CRUD) over menu items and orders.
+ - Admins can add new menu items, update existing items, or remove items that are no longer available.
+ -  Integrated with the Razorpay Payment Gateway for processing payments securely.
 
 
- ![hm1](https://github.com/RohitAayushmaan/HomeDeliveryRestaurants/assets/52812829/789a30cd-e618-454f-baa7-ec8fc6c74611)
 
 
- 
-#### **"Restaurant-Express-WebApp"** is a web-based food ordering application developed using the Django framework.   
+## Follow the steps below to set up and install the project dependencies:
 
-For users, developed an intuitive interface to explore various restaurant menus, select items, and place orders. It also provide a Cart system that enables users to make a list of selected food items before finalizing their orders. Once the selection is complete, users can proceed to place their orders.
-
-On the administrative side, developed an admin page that grants administrators full control over the menu items and orders. The admin page facilitates CRUD (Create, Read, Update, Delete) operations on the menu items. Admins can easily make changes to the menu by adding new items, updating existing ones, or removing items that are no longer available. Additionally, they can monitor and manage the orders placed by users.
-
-This application also integrates with the Razorpay online payment gateway. This integration enables users to make secure online payments for their orders.
-
-## To run this project, follow these necessary steps:
-
-Git Clone this repo - 
-```sh
+Clone this repository:
+```
 git clone https://github.com/RohitAayushmaan/HomeDeliveryRestaurants.git
 ```
-Navigate into the cloned project directory using cd <HomeDeliveryRestaurants>
 
-
-Make Virtual Environment and install Django
-```sh
-pip install virtualenvwrapper-win
-mkvirtualenv envName
-workon envName
-pip install django
+Access:
+```
+cd Restaurant-Express-WebApp
 ```
 
-# Create Database
-```sh
+Install virtualenv:
+```
+pip install virtualenvwrapper
+```
+
+Creating the virtualenv:
+```
+mkvirtualenv venv_name
+```
+
+After creating virtial environment we need to activate it:
+```
+workon venv_name
+```
+
+Package you need to install:
+```
+pip install -r requirement.txt
+```
+
+Create all the tables in database.
+```
 python manage.py migrate
-python manage.py makemigrations
 ```
 
-# Now Run 
-```sh
+## Run the project
+```
 python manage.py runserver
 ```
 
+The server will initialize in the http://localhost:8000
 
