@@ -25,7 +25,339 @@ from .models import Transaction
 # razorpay_client = razorpay.Client(auth=(settings.key_id, settings.key_secret))
 
 
-#check
+usercheck=False
+def check(request):
+    global otherpage , usercheck,imglogin
+    sliders = [slider1, slider2, slider3]
+    items = [item1, item2, item3, item4, item5, item6, item7, item8, item9]
+    items2 = [item10, item11, item12, item13, item14, item15, item16, item17, item18]
+    features = [feature1, feature2, feature3]
+    chefs = [chef1, chef2, chef3, chef4]
+    webd = [awebd]
+    webds = [webd1, webd2]
+    if request.method == 'POST':
+        fpassword1 = request.POST['pass1']
+        fusername = request.POST['username']
+        if new_user.objects.filter(username=fusername).exists() and new_user.objects.filter(pass1=fpassword1).exists():
+            usercheck=True
+            otherpage = fusername
+            print("success1")
+            return render(request, 'index.html',{'sliders': sliders, 'fmenu': fmenu, 'smenu': smenu, 'mitem1': mitem1, 'mitem2': mitem2,
+                           'items': items, 'items2': items2, 'features': features, 'chefs': chefs, 'location': location,'time': time, 'reserv': reserv,
+                           'webds': webds, 'webd': webd, 'off': off, 'otherpage': otherpage,'logor':logor})
+        else:
+            print("success2")
+            return render(request, 'login.html', {'webd': webd, 'webds': webds,'imglogin':imglogin,'logor':logor})
+    else:
+        print("worng")
+        return render(request, 'login.html', {'webd': webd, 'webds': webds,'imglogin':imglogin,'logor':logor})
+
+
+def index(request):
+    global imglogin
+    imglogin = loginimg()
+    imglogin.img = 'about1.jpg'
+    #cart-------------------------
+    global logor
+    logor=rlogo()
+    logor.img='RE.png'
+
+    # ------------------------------------
+    global ucart
+    ucart = cart()
+    ucart.img = 'cart.png'
+    #features-----------------------------
+    global feature1
+    feature1=item()
+    feature1.name='BEAUTIFUL LOCATION.'
+    feature1.img='det/1.jpg'
+    feature1.det='FOOD TASTES BETTER WHEN YOU ARE IN GOOD LOCATION.'
+
+    global feature2
+    feature2 = item()
+    feature2.name = 'FEEL THE TASTE.'
+    feature2.img = 'det/2.jpg'
+    feature2.det = 'NOTHING BRINGS PEOPLE TOGETHER LIKE GOOD FOOD.'
+
+    global feature3
+    feature3=item()
+    feature3.name='DELICIOUS DESSERTS.'
+    feature3.img='det/3.jpg'
+    feature3.det='THE BEST THINGS IN LIFE ARE SWEET.'
+
+
+
+    #slider-------------------------------------------------------------
+    global slider1,slider2,slider3,sliders
+    slider1=item()
+    slider1.img='slider/nss2.jpg'
+    slider2=item()
+    slider2.img='slider/test1.jpg'
+    slider3=item()
+    slider3.img='slider/test3.jpg'
+
+    #meni items-----------------------------------------------------------
+    global fmenu,mitem1,mitem2,smenu
+    fmenu=item()
+    fmenu.img='menu/menub.jpg'
+    smenu=item()
+    smenu.img='menu/menua.jpg'
+
+
+    mitem1=item()
+    mitem1.name='Breakfast burrito'
+    mitem1.img='menu/breakfast/1.jpg'
+    mitem1.det='It is veery testy'
+    mitem1.price='60'
+
+    mitem2 = item()
+    mitem2.name = 'Omlet'
+    mitem2.img = 'menu/breakfast/2.jpg'
+    mitem2.det = 'It is veery testy'
+    mitem2.price = '70'
+
+    #item list- -----------------------------------------------------------1
+    global item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11,item12,item13,item14,item15,item16,item17,item18
+    item1 = item()
+    item1.name = 'Breakfast burrito'
+    item1.img = 'menu/breakfast/1.jpg'
+    item1.price = '80'
+
+    item2 = item()
+    item2.name = 'Omlet'
+    item2.img = 'menu/breakfast/2.jpg'
+    item2.price = '75'
+
+    item3 = item()
+    item3.name = 'Cheese'
+    item3.img = 'menu/breakfast/3.jpg'
+    item3.price = '45'
+
+    item4 = item()
+    item4.name = 'Milk'
+    item4.img = 'menu/breakfast/4.jpg'
+    item4.price = '54'
+
+    item5 = item()
+    item5.name = 'Pizza'
+    item5.img = 'menu/breakfast/5.jpg'
+    item5.price = '70'
+
+    item6 = item()
+    item6.name = 'Double Omlet'
+    item6.img = 'menu/breakfast/6.jpg'
+    item6.price = '120'
+
+    item7 = item()
+    item7.name = 'hamburger'
+    item7.img = 'menu/breakfast/7.jpg'
+    item7.price = '50'
+
+    item8= item()
+    item8.name = 'Cake'
+    item8.img = 'menu/breakfast/8.jpg'
+    item8.price = '85'
+
+    item9 = item()
+    item9.name = 'Velvet Cake'
+    item9.img = 'menu/desserts/1.jpg'
+    item9.price = '95'
+
+    # item list-------------------------------------------------2
+    item10 = item()
+    item10.name = 'Chocolate Cake'
+    item10.img = 'menu/desserts/2.jpg'
+    item10.price = '95'
+
+    item11 = item()
+    item11.name = 'Cream Cake'
+    item11.img = 'menu/desserts/3.jpg'
+    item11.price = '70'
+
+    item12 = item()
+    item12.name = 'Sol Cake'
+    item12.img = 'menu/desserts/4.jpg'
+    item12.price = '35'
+
+    item13 = item()
+    item13.name = 'Sol Cake '
+    item13.img = 'menu/desserts/5.jpg'
+    item13.price = '45'
+
+    item14 = item()
+    item14.name = 'Truffle Cake'
+    item14.img = 'menu/desserts/6.jpg'
+    item14.price = '45'
+
+    item15 = item()
+    item15.name = 'Forest Cake '
+    item15.img = 'menu/desserts/7.jpg'
+    item15.price = '55'
+
+    item16 = item()
+    item16.name = 'Pineapple cake'
+    item16.img = 'menu/desserts/8.jpg'
+    item16.price = '65'
+
+    item17 = item()
+    item17.name = 'Papper Pizza'
+    item17.img = 'menu/pizza/1.jpg'
+    item17.price = '175'
+
+    item18 = item()
+    item18.name = 'Meatza Pizz'
+    item18.img = 'menu/pizza/2.jpg'
+    item18.price = '285'
+
+    #chefs-----------------------------------------------------
+    global chef1,chef2,chef3,chef4,chefs
+    chef1=item()
+    chef1.name='Vicky Ratnani'
+    chef1.img='chef/chef4.jpg'
+    chef1.det='Indian'
+    chef1.skill1='Fish'
+    chef1.skill2='Shrimp'
+    chef1.skill3 = 'Salad'
+    chef1.skill4= 'Sandwich'
+    chef1.skill5='Bread'
+
+    chef2 = item()
+    chef2.name = 'Romy Gill'
+    chef2.img = 'chef/chef1.jpg'
+    chef2.det = 'Indian'
+    chef2.skill1 = 'Rice'
+    chef2.skill2 = 'Spaghetti'
+    chef2.skill3 = 'Pizza'
+    chef2.skill4 = 'Hamburger'
+    chef2.skill5 = 'Eggs'
+
+    chef3=item()
+    chef3.name='Sanjeev kumar'
+    chef3.img='chef/chef3.jpg'
+    chef3.det='indian'
+    chef3.skill1 = 'Cheese'
+    chef3.skill2 = 'Sausages'
+    chef3.skill3 = 'Candy'
+    chef3.skill4 = 'Tea'
+    chef3.skill5 = 'Cookie'
+
+    chef4=item()
+    chef4.name='Vineet Bhatia'
+    chef4.img='chef/chef2.jpg'
+    chef4.det='Indian'
+    chef4.skill1 = 'Cake'
+    chef4.skill2 = 'Pie'
+    chef4.skill3 = 'Cupcake'
+    chef4.skill4 = 'Sweet'
+    chef4.skill5 = 'Bitter'
+
+    global location
+    location=item()
+    location.name='KIET Group of Institutions'
+    location.det='Ghaziabad,206201'
+
+    global time
+    time=item()
+    time.det='SUN - THU | 07:00 - 23:00'
+    time.name='FRI - SAT | 08:00 - 01:00'
+
+    global reserv
+    reserv=item()
+    reserv.name='MOBILE: +91-8840854918'
+    reserv.det='E-MAIL: rohiit.chaurasiya@gmail.com'
+
+    global awebd
+    awebd = bottom()
+    awebd.name = 'Aayushmaan Restaurant'
+    awebd.img1 = 'menu/footer.jpg'
+    awebd.img2 = 'headertop.png'
+    awebd.det = 'Aayushmaan Community © 2023'
+
+    global webd1
+    webd1 = bottom()
+    webd1.name = 'Offers'
+    webd1.op1 = '50% off'
+    webd1.op2 = '40% off'
+    webd1.op3 = '60% off'
+    webd1.op4 = '10% Cashback'
+    webd1.op5 = 'Free Delivery'
+
+    global webd2
+    webd2 = bottom()
+    webd2.name = 'Staff'
+    webd2.op1 = 'Chif'
+    webd2.op2 = 'Staff'
+    webd2.op3 = 'Baker'
+    webd2.op4 = 'Counter Server'
+    webd2.op5 = 'Bus Person'
+
+
+    #--------------------------------------------Offers ------------------------------------
+    global off
+    off=offers()
+    off.name='Offers'
+    off.det='60% off upto Rs.120 | Use Coupon WELCOME '
+
+#=================================================================================================================================
+    sliders=[slider1,slider2,slider3]
+    items=[item1,item2,item3,item4,item5,item6,item7,item8,item9]
+    items2=[item10,item11,item12,item13,item14,item15,item16,item17,item18]
+    features=[feature1,feature2,feature3]
+    chefs=[chef1,chef2,chef3,chef4]
+    global webds
+    webds=[webd1,webd2]
+    webd=[awebd]
+    return render(request,'index.html', {'sliders':sliders,'fmenu':fmenu,'smenu':smenu,'mitem1':mitem1,'mitem2':mitem2,'items':items,'items2':items2,
+    'features':features,'chefs':chefs,'location':location,'time':time,'reserv':reserv,'webds':webds,'webd':webd,'off':off,'logor':logor})
+
+
+def home(request):
+    sliders = [slider1, slider2, slider3]
+    items = [item1, item2, item3, item4, item5, item6, item7, item8, item9]
+    items2 = [item10, item11, item12, item13, item14, item15, item16, item17, item18]
+    features = [feature1, feature2, feature3]
+    chefs = [chef1, chef2, chef3, chef4]
+    webds = [webd1, webd2]
+    webd = [awebd]
+    print("home")
+    global otherpage
+    check(request)
+    if usercheck == True:
+        print("if")
+        print(otherpage)
+        return render(request, 'index.html',
+                      {'sliders': sliders, 'fmenu': fmenu, 'smenu': smenu, 'mitem1': mitem1, 'mitem2': mitem2,
+                       'items': items, 'items2': items2,
+                       'features': features, 'chefs': chefs, 'location': location, 'time': time, 'reserv': reserv,
+                       'webds': webds, 'webd': webd, 'off': off,'otherpage':otherpage,'logor':logor})
+    else:
+        print("else")
+        return render(request, 'index.html',
+                      {'sliders': sliders, 'fmenu': fmenu, 'smenu': smenu, 'mitem1': mitem1, 'mitem2': mitem2,
+                       'items': items, 'items2': items2,
+                       'features': features, 'chefs': chefs, 'location': location, 'time': time, 'reserv': reserv,
+                       'webds': webds, 'webd': webd, 'off': off,'logor':logor})
+
+
+def about(request):
+    # =====================about
+    aboutr = aboutd()
+    aboutr.name = 'Restaurant Express'
+    aboutr.img = 'about1.jpg'
+    aboutr.det = 'The Right Ingredients for the Right Food.'
+    aboutr.desc = 'Location: Ghaziabad'
+
+    chefs = [chef1, chef2, chef3, chef4]
+    webd=[awebd]
+    webds=[webd1,webd2]
+    check(request)
+    if usercheck == True:
+        print("if")
+        print(otherpage)
+        return render(request,'about.html',{'aboutr':aboutr,'webds':webds,'webd':webd,'chefs':chefs,'otherpage':otherpage,'logor':logor})
+    else:
+        return render(request, 'about.html', {'aboutr':aboutr,'webds': webds, 'webd': webd, 'chefs': chefs,'logor':logor})
+
 
 def menu(request):
     global otherpage, menuslider
@@ -133,65 +465,7 @@ def menu(request):
     menu16.det = 'PIZZA'
     menu16.price = '200'
 
-    menu17 = menuitem()
-    menu17.name = 'Chocolate'
-    menu17.img = 'menu/desserts/1.jpg'
-    menu17.det = 'DESSERTS'
-    menu17.price = '200'
 
-    menu18 = menuitem()
-    menu18.name = 'Berry'
-    menu18.img = 'menu/desserts/2.jpg'
-    menu18.det = 'DESSERTS'
-    menu18.price = '200'
-
-    menu19 = menuitem()
-    menu19.name = 'Nuts'
-    menu19.img = 'menu/desserts/3.jpg'
-    menu19.det = 'DESSERTS'
-    menu19.price = '200'
-
-    menu20 = menuitem()
-    menu20.name = 'Pistachio'
-    menu20.img = 'menu/desserts/4.jpg'
-    menu20.det = 'DESSERTS'
-    menu20.price = '200'
-
-    menu21 = menuitem()
-    menu21.name = 'Vanilla'
-    menu21.img = 'menu/desserts/5.jpg'
-    menu21.det = 'DESSERTS'
-    menu21.price = '200'
-
-    menu22 = menuitem()
-    menu22.name = 'Cherry'
-    menu22.img = 'menu/desserts/6.jpg'
-    menu22.det = 'DESSERTS'
-    menu22.price = '200'
-
-    menu23 = menuitem()
-    menu23.name = 'Milk Chico'
-    menu23.img = 'menu/desserts/7.jpg'
-    menu23.det = 'DESSERTS'
-    menu23.price = '200'
-
-    menu24 = menuitem()
-    menu24.name = 'Coolies'
-    menu24.img = 'menu/desserts/8.jpg'
-    menu24.det = 'DESSERTS'
-    menu24.price = '200'
-
-    menu25 = menuitem()
-    menu25.name = 'Toast'
-    menu25.img = 'menu/breakfast/1.jpg'
-    menu25.det = 'BREAKFAST'
-    menu25.price = '200'
-
-    menu26= menuitem()
-    menu26.name = 'Omelette'
-    menu26.img = 'menu/breakfast/2.jpg'
-    menu26.det = 'BREAKFAST'
-    menu26.price = '200'
 
     menu27= menuitem()
     menu27.name = 'Waffles'
@@ -253,33 +527,9 @@ def menu(request):
     menu36.det = 'PIZZA'
     menu36.price = '200'
 
-    menu37 = menuitem()
-    menu37.name = 'Chicken Tikka'
-    menu37.img = 'menu/pizza/7.jpg'
-    menu37.det = 'PIZZA'
-    menu37.price = '200'
-
-    menu38 = menuitem()
-    menu38.name = 'Keema Masala'
-    menu38.img = 'menu/pizza/8.jpg'
-    menu38.det = 'PIZZA'
-    menu38.price = '200'
-
-    menu39 = menuitem()
-    menu39.name = 'Chocolate'
-    menu39.img = 'menu/desserts/1.jpg'
-    menu39.det = 'DESSERTS'
-    menu39.price = '200'
-
-    menu40 = menuitem()
-    menu40.name = 'Berry'
-    menu40.img = 'menu/desserts/2.jpg'
-    menu40.det = 'DESSERTS'
-    menu40.price = '200'
 
 
-    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu17,menu18,menu19,menu20,
-           menu21,menu22,menu23,menu24,menu25,menu26,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36,menu37,menu38,menu39,menu40]
+    menus=[menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14,menu15,menu16,menu27,menu28,menu29,menu30,menu31,menu32,menu33,menu34,menu35,menu36]
     webd = [awebd]
     webds = [webd1, webd2]
     if usercheck == True:
@@ -1011,7 +1261,6 @@ def Pastry(request):
     else:
         return render(request, 'menu.html', {'menus': menus, 'offer': offer, 'webd': webd, 'webds': webds,'listname':listname,'menuslider':menuslider})
 
-
 def gallery(request):
     global otherpage
     check(request)
@@ -1069,7 +1318,7 @@ def add(request):
         phone = request.POST["phone"]
         pass1 = request.POST["pass1"]
         pass2 = request.POST["pass2"]
-        dob = request.POST["dob"]
+        # dob = request.POST["dob"]
         # address = request.POST["address"]
         # city = request.POST["city"]
         # pin = request.POST["pin"]
@@ -1081,7 +1330,7 @@ def add(request):
             elif new_user.objects.filter(phone=phone).exists():
                 return render(request, 'register.html', {'phoneerror':"Phone No has already registerd",'webd': webd, 'webds': webds,'logor':logor})
             else:
-                newinfo = new_user(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2, dob=dob,
+                newinfo = new_user(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2,
                            )
                 new_user.user = request.user
                 newinfo.save()
@@ -1212,7 +1461,7 @@ def userorderlist(request):
 def finalitems(request): #your orders Button function
      global cart1 ,ucart
      global order,finalorder
-     finalorder="Your Order"
+     finalorder="My Orders"
      webd = [awebd]
      webds = [webd1, webd2]
      orders = []
