@@ -261,53 +261,8 @@
 <!-- ============================ Our services layout close ================================================================-->
 
 
-<!-- ===========================  Our chefs section =====================================================================-->
-<div class="container-fluid" style="position:relative mt-5; background:url({% static 'image/chef/pattern.png' %});">
-    <div class="container" style="position:relative;">
-        <div class="row mt-5">
-            <div class="col-lg-12">
-                <h5 align="center"
-                    style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px; margin-top:50px; margin-bottom:0PX;">
-                    Expert & Skillful
-                </h5>
-                <h1 align="center"
-                    style="font-size:50px; color:#FF0000; margin-top:5px; font-family: cookie,cursive; font-weight: 700;">
-                    Our Chefs</h1>
-            </div> <!-- column close -->
-        </div> <!-- container row close-->
-
-        <div class="row justify-content-md-center mt-4" style="align-items: center">
-            {% for chef in chefs %}
-            <div class="col-12 col-lg-3 col-md-6 col-sm-6 align-self-center my-3">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{{baseUrl}}/{{chef.img}}" class="img-fluid  float-none">
-                        <h1 align="center" style="font-size:28px ; margin-top:10px; padding:0px;">{{chef.name}}</h1>
-                        <h6 align="center"
-                            style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
-                            {{chef.det}}</h6>
-                        <ul class="mt-3">
-                            <li>{{chef.skill1}}</li>
-                            <li>{{chef.skill2}}</li>
-                            <li>{{chef.skill3}}</li>
-                            <li>{{chef.skill4}}</li>
-                            <li>{{chef.skill5}}</li>
-                            <br/>
-                        </ul>
-                    </div><!-- card body close-->
-                </div><!-- main card close-->
-            </div><!-- column close-->
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
-
-<!-- ===================    Chef section layout close    ========================================================-->
-
 
 <!-- ================================ contact section layout =====================================================-->
-
 <div class="container mt-5">
     <div class="row" style="margin-top:100px;">
         <div class="col-lg-4 col-md-4" align="center">
