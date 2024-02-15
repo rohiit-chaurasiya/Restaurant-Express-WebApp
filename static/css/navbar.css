@@ -170,7 +170,7 @@
   background-image: linear-gradient(#ffffff,#d3c8f6);
   top: 50px;
   left: 0;
-  width: 80%;
+  width: 100%;
   border-radius: 4px;
   display: block;
   box-shadow: 0 14px 35px 0 rgba(9,9,12,0.4);
@@ -351,3 +351,5 @@ a .uil {
     width: auto;
     margin-right:40px
 }
+
+
