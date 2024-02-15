@@ -1,301 +1,246 @@
 {% extends 'base.html' %}
-<!--============================================================== Navigation , slider layout ======================================-->
 {% block content %}
-{% load static %}
-{% static "image" as baseUrl %}
-{{otherpage}}
-<div class="container-fluid img-fluid"
-     style="width: 100%; background-image: linear-gradient(#ffffff,#d3c8f6); background-size: auto 100%; height: 350px; margin-top: 50px; border-collapse: separate;border-radius:40px">
-    <div class="container" style="position:relative;">
-        <div class="row justify-content-around">
-
-            <div class="index col-6 col-lg-4 col-md-5 col-sm-5 align-self-center">
-                <img class="img-fluid" src="{% static 'image/mainpage2.png' %}">
+    {% load static %}
+    {% static "image" as baseUrl %}
+    {{otherpage}}
+    <div class="container-fluid img-fluid"
+         style="width: 100%; background-image: linear-gradient(#ffffff,#d3c8f6); background-size: auto 100%; height: 350px; margin-top: 50px; border-collapse: separate;border-radius:40px">
+        <div class="container" style="position:relative;">
+            <div class="row justify-content-around">
+                <div class="index col-6 col-lg-4 col-md-5 col-sm-5 align-self-center">
+                    <img class="img-fluid" src="{% static 'image/mainpage2.png' %}">
+                </div>
+                <div class="index col-10 col-lg-6 col-md-6 col-sm-7">
+                    <h3>Feast at Home</h3>
+                    <h2><strong>with Restaurant Express</strong></h2>
+                    <button class="btn" type="button"
+                            style="background-color:#1abc9c;border-radius:15px;font-weight: 650;">
+                        <a href="{% url 'menu' %}" style="color:black">Explore nearby Restaurants.</a></button>
+                </div>
             </div>
-
-            <div class="index col-10 col-lg-6 col-md-6 col-sm-7">
-                <h3>Feast at Home</h3>
-                <h2><strong>with Restaurant Express</strong></h2>
-                <button class="btn" type="button"
-                        style="background-color:#1abc9c;border-radius:15px;font-weight: 650;">
-                    <a href="{% url 'menu' %}" style="color:black">Explore nearby Restaurants.</a></button>
-            </div>
-
         </div>
     </div>
-</div>
 
-<!--<div>-->
-<!--    <div class="carousel slide" data-ride="carousel" id="run">-->
-<!--        <ol class="carousel-indicators">-->
-<!--            <li data-slide-to="0" class="active"></li>-->
-<!--            <li data-slide-to="1"></li>-->
-<!--            <li data-slide-to="2"></li>-->
-<!--            <li data-slide-to="3"></li>-->
-<!--        </ol>-->
-<!--        <div class="carousel-inner">-->
-<!--            {% for slider in sliders %}-->
-<!--            <div class="carousel-item ">-->
-<!--                <div>-->
-<!--                    <img src="{% static 'image/slider/nss2.jpg' %}" class="img-fluid">-->
-<!--                </div>-->
-<!--            </div>   &lt;!&ndash;carousel item close&ndash;&gt;-->
-<!--            {% endfor %}-->
-<!--            <div class="carousel-item active ">-->
-<!--                <div>-->
-<!--                    <img src="{% static 'image/slider/nss2.jpg' %}" class="img-fluid">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <a href="#run" class="carousel-control-prev" data-slide="prev"><span-->
-<!--                    class="carousel-control-prev-icon"></span></a>-->
-<!--            <a href="#run" class="carousel-control-next" data-slide="next"><span-->
-<!--                    class="carousel-control-next-icon"></span></a>-->
-<!--        </div>&lt;!&ndash; carousel inner close &ndash;&gt;-->
-<!--    </div> &lt;!&ndash;carousel slider close&ndash;&gt;-->
-<!--</div>-->
-
-<!--=========================================Navigation slider layout close ================================================ -->
-
-<!--======================================== How we work section======================================================== -->
-<!--<div class="container-fluid">-->
-<!--    <dl class="row mt-5">-->
-<!--        <dt class="col-3"> {{off.name}}</dt>&lt;!&ndash; discription table&ndash;&gt;-->
-<!--        <dd class="col-9"> {{off.det}}</dd>&lt;!&ndash; discription data&ndash;&gt;-->
-<!--    </dl>&lt;!&ndash; Discription list close&ndash;&gt;-->
-<!--</div>-->
-
-
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-sm-4" align="center">
-            <img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-            <H5 style="font-weight: 700; font-weight:700;"> FOOD SERVED HOT</H5>
-            <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Delicious Food Served Hot, Guaranteed to Satisfy!.</span>
-        </div><!-- column close -->
-        <div class="col-sm-4" align="center">
-            <img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-            <H5 style="font-weight: 700; font-weight:700;">AMPLE OPTIONS</H5>
-            <span class="primary"
-                  style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Indulge in our restaurant's ample options, where taste and variety come together to satisfy every craving!.</span>
-        </div><!-- column close -->
-        <div class="col-sm-4" align="center">
-            <img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
-            <H5 style="font-weight: 700; font-weight:700;">IN-HOUSE BREWERY</H5>
-            <span class="primary"
-                  style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Indulge in the finest flavors and craftmanship at our restaurant: Experience our enticing IN-HOUSE BREWERY!.</span>
-        </div><!-- column close -->
-    </div><!-- work row close-->
-</div>
-
-
-<div class="container-fluid mb-5 mt-5" style=" background-color:#1abc9c; padding:10px; margin-top:0px;">
     <div class="container">
-        <div class="row mt-1">
-            <div class="col-md-8 col-sm-6"><h3 style="font-weight:700; font-size:24px; color:#FFFFFF;">{{off.det}}</h3>
-                <footer class="blockquote-footer"><a href="#" style="color:#FFFFFF;"> terms & Conditions Apply</a>
-                </footer>
-            </div>
-            <div class="col-md-3 mt-1">
-                <button class="btn" type="button"
-                        style="background-color:#FFFFFF; width:200px; border-radius:20px;font-weight:650; font-size:24px;">
-                    Order Now
-                </button>
-            </div><!--discription data-->
-        </div><!--Discription list close-->
-    </div>
-</div>
-
-
-<!--========================================================= menu layout==================================-->
-
-<div class="container-fluid hmImage mt-3"
-     style="position:relative; background:url({% static 'image/hps1.jpg' %})repeat center bottom; width:100%">
-    <div>
-        <div class="container" style="position:relative;" align="center">
-            <h1>&nbsp;</h1>
-            <p class="primary text-dark" style="font-size: 30px;"><b>Category</b></p>
-            <p class="hmname" style="font-family: cookie,cursive;font-weight: 400;"><b>Our Dessert
-                Menu</b></p>
-        </div>
-    </div>
-</div>
-<div class="container-fluid" style="position:absolute;background-color: #EBEBEB;">
-    <h1 class="show"></h1>
-</div>
-
-<div class="container" style="position:relative; margin-top:-200px;" align="center">
-    <div class="row mt-5 ml-auto" style="position:relative;">
-        <div class="col-12 col-lg-3 col-md-6 col-sm-6 my-3">
-            <div class="card" style=" border-radius: 25px;align-items: center">
-                <img class="card-img-top img-fluid mt-4" src="{% static 'image/c2.png' %}" alt="Card image cap"
-                     style="height:30%;width:30%;">
-                <div class="card-body">
-                    <div>
-                        <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">
-                            Bread</p>
-                    </div>
-                    <div>
-                        <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Bread
-                            is a staple food prepared from a dough of flour (usually wheat) and water, usually by
-                            baking.</i></p>
-                    </div>
-                    <div align="center">
-                        <a href="{% url 'Burger' %}" class="card-link">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
-            <div class="card" style=" border-radius: 25px;align-items: center">
-                <img class="card-img-top img-fluid mt-4" src="{% static 'image/c4.png' %}" alt="Card image cap"
-                     style="height:30%;width:30%;">
-                <div class="card-body">
-                    <div>
-                        <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">
-                            Pastries</p>
-                    </div>
-                    <div>
-                        <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Bread
-                            is a staple food prepared from a dough of flour (usually wheat) and water, usually by
-                            baking.</i></p>
-                    </div>
-                    <div align="center">
-                        <a href="{% url 'Pastry' %}" class="card-link">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
-            <div class="card" style=" border-radius: 25px;align-items: center">
-                <img class="card-img-top img-fluid mt-4" src="{% static 'image/c3.png' %}" alt="Card image cap"
-                     style="height:30%;width:30%;">
-                <div class="card-body">
-                    <div>
-                        <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">
-                            Cakes</p>
-                    </div>
-                    <div>
-                        <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Bread
-                            is a staple food prepared from a dough of flour (usually wheat) and water, usually by
-                            baking.</i></p>
-                    </div>
-                    <div align="center">
-                        <a href="{% url 'Gulab_Jamun' %}" class="card-link">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
-            <div class="card" style=" border-radius: 25px;align-items: center">
-                <img class="card-img-top img mt-4" src="{% static 'image/c1.png' %}" alt="Card image cap"
-                     style="height:30%;width:30%;">
-                <div class="card-body">
-                    <div>
-                        <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">
-                            Cookies</p>
-                    </div>
-                    <div>
-                        <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Bread
-                            is a staple food prepared from a dough of flour (usually wheat) and water, usually by
-                            baking.</i></p>
-                    </div>
-                    <div align="center">
-                        <a href="{% url 'Poori' %}" class="card-link">See More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div>
-        </br>
-        </br>
-
-    </div>
-</div>
-
-
-<!-- ================================= first Menu  layout close =================================================================-->
-
-<!-- ==================================features open =============================================================================-->
-<div class="container-fluid" style="position:relative">
-    <div class="container" style="position:relative">
         <div class="row mt-5">
-            {% for feature in features %}
-            <div class="col-md-4 col-lg-4 mt-5 ">
-                <button type="button" style="background-color: #FFFFFF; border:none;">
-                    <img src="{{baseUrl}}/{{feature.img}}" class="img-fluid"></button>
-                <h5 style="color:#db493c; margin-top:30px;">
-                    {{feature.name}}
-                </h5><br/>
-                <div style="font-family: poppins;color: #bbb;text-transform: uppercase;font-weight: 400;letter-spacing: 2px;">
-                    {{feature.det}}
+            <div class="col-sm-4" align="center">
+                <img src="{% static 'image/logo/bowl.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style="font-weight: 700; font-weight:700;"> FOOD SERVED HOT</H5>
+                <span class="primary" style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Delicious Food Served Hot, Guaranteed to Satisfy!.</span>
+            </div><!-- column close -->
+            <div class="col-sm-4" align="center">
+                <img src="{% static 'image/logo/glass.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style="font-weight: 700; font-weight:700;">AMPLE OPTIONS</H5>
+                <span class="primary"
+                      style="font-size: 16px;color: #AAA; margin-top:10px; line-height: 1.8;">Indulge in our restaurant's ample options, where taste and variety come together to satisfy every craving!.</span>
+            </div><!-- column close -->
+            <div class="col-sm-4" align="center">
+                <img src="{% static 'image/logo/spoon.svg' %}" class="img-fluid mb-4" height="50px" width="70px">
+                <H5 style="font-weight: 700; font-weight:700;">IN-HOUSE BREWERY</H5>
+                <span class="primary"
+                      style="font-size: 16px;color: #AAA; margin-top:10px;line-height: 1.8;">Indulge in the finest flavors and craftmanship at our restaurant: Experience our enticing IN-HOUSE BREWERY!.</span>
+            </div><!-- column close -->
+        </div><!-- work row close-->
+    </div>
+
+
+    <div class="container-fluid mb-5 mt-5" style=" background-color:#1abc9c; padding:10px; margin-top:0px;">
+        <div class="container">
+            <div class="row mt-1">
+                <div class="col-md-8 col-sm-6"><h3 style="font-weight:700; font-size:24px; color:#FFFFFF;">{{off.det}}</h3>
+                    <footer class="blockquote-footer"><a href="#" style="color:#FFFFFF;"> terms & Conditions Apply</a>
+                    </footer>
                 </div>
-                <footer class="blockquote-footer">Restaurant<cite title="source-title">Express</cite>
-                </footer>
+                <div class="col-md-3 mt-1">
+                    <button class="btn" type="button"
+                            style="background-color:#FFFFFF; width:200px; border-radius:20px;font-weight:650; font-size:24px;">
+                        Order Now
+                    </button>
+                </div><!--discription data-->
+            </div><!--Discription list close-->
+        </div>
+    </div>
+
+
+    <!--========================================================= menu layout==================================-->
+
+    <div class="container-fluid hmImage mt-3"
+         style="position:relative; background:url({% static 'image/hps1.jpg' %})repeat center bottom; width:100%">
+        <div>
+            <div class="container" style="position:relative;" align="center">
+                <h1>&nbsp;</h1>
+                <p class="primary text-dark" style="font-size: 30px;"><b>Category</b></p>
+                <p class="hmname" style="font-family: cookie,cursive;font-weight: 400;"><b>Our Dessert
+                    Menu</b></p>
             </div>
-            {% endfor %}
-
         </div>
     </div>
-</div>
-<!-- =========================== DETAILS CLOSE ===========================================================================-->
+    <div class="container-fluid" style="position:absolute;background-color: #EBEBEB;">
+        <h1 class="show"></h1>
+    </div>
 
+    <div class="container" style="position:relative; margin-top:-200px;" align="center">
+        <div class="row mt-5 ml-auto" style="position:relative;">
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6 my-3">
+                <div class="card" style=" border-radius: 25px;align-items: center">
+                    <img class="card-img-top img-fluid mt-4" src="{% static 'image/c2.png' %}" alt="Card image cap"
+                         style="height:30%;width:30%;">
+                    <div class="card-body">
+                        <div>
+                            <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">Bread</p>
+                        </div>
+                        <div>
+                            <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Bread
+                                is a staple food prepared from a dough of flour (usually wheat) and water, usually by
+                                baking.</i></p>
+                        </div>
+                        <div align="center">
+                            <a href="{% url 'Burger' %}" class="card-link">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
+                <div class="card" style=" border-radius: 25px;align-items: center">
+                    <img class="card-img-top img-fluid mt-4" src="{% static 'image/c4.png' %}" alt="Card image cap"
+                         style="height:30%;width:30%;">
+                    <div class="card-body">
+                        <div>
+                            <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">Pastries</p>
+                        </div>
+                        <div>
+                            <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Pastries
+                                is a staple food prepared from a dough of flour (usually wheat) and water, usually by
+                                baking.</i></p>
+                        </div>
+                        <div align="center">
+                            <a href="{% url 'Pastry' %}" class="card-link">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- =========================== Our services ============================================================================-->
-<div class="container-fluid">
-    <div style="position:relative">
-        <img src="{% static 'image/menu/work.jpg' %}" class="img-fluid">
-        <div style="position:absolute; top:10%;">
-            <img src="{% static 'image/menu/service.jpg' %}" class="img-fluid" height="40%" width="55%">
-            <button class="btn btn-danger " type="button"
-                    style="margin:25px; border-radius:23px; font-weight:650; font-size:20px;">Our Services
-            </button>
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
+                <div class="card" style=" border-radius: 25px;align-items: center">
+                    <img class="card-img-top img-fluid mt-4" src="{% static 'image/c3.png' %}" alt="Card image cap"
+                         style="height:30%;width:30%;">
+                    <div class="card-body">
+                        <div>
+                            <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">Cakes</p>
+                        </div>
+                        <div>
+                            <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Cakes
+                                is a staple food prepared from a dough of flour (usually wheat) and water, usually by
+                                baking.</i></p>
+                        </div>
+                        <div align="center">
+                            <a href="{% url 'Gulab_Jamun' %}" class="card-link">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3 col-md-6 col-sm-6 mr-auto my-3">
+                <div class="card" style=" border-radius: 25px;align-items: center">
+                    <img class="card-img-top img mt-4" src="{% static 'image/c1.png' %}" alt="Card image cap"
+                         style="height:30%;width:30%;">
+                    <div class="card-body">
+                        <div>
+                            <p style="color:black; font-size:25px; font-family:ppins; float:center;" class="card-title">Cookies</p>
+                        </div>
+                        <div>
+                            <p style="color:black; font-size:15px; font-family:ppins; float:left;" class="card-title"><i>Cookies
+                                is a staple food prepared from a dough of flour (usually wheat) and water, usually by
+                                baking.</i></p>
+                        </div>
+                        <div align="center">
+                            <a href="{% url 'Poori' %}" class="card-link">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            </br>
+            </br>
         </div>
     </div>
-</div>
-<!-- ============================ Our services layout close ================================================================-->
 
 
+    <!-- ================================= first Menu  layout close =================================================================-->
 
-<!-- ================================ contact section layout =====================================================-->
-<div class="container mt-5">
-    <div class="row" style="margin-top:100px;">
-        <div class="col-lg-4 col-md-4" align="center">
-            <i style="color:#000000; font-size:48px; " class="fa fa-map" aria-hidden="true"></i>
-            <h3 style="font-size: 22px; font-weight: 700;">LOCATION </h3>
-            <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
-                {{location.name}}</br>{{location.det}}</h6>
-            <p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.893371596725!2d77.4958404100938!3d28.752600375497604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf47204fb9241%3A0xd11ed4123c7691fe!2sKIET%20GROUP%20OF%20INSTITUTIONS%2C%20Muradnagar%2C%20Uttar%20Pradesh%20201206!5e0!3m2!1sen!2sin!4v1690659276237!5m2!1sen!2sin"
-                        width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe></p>
+    <!-- ==================================features open =============================================================================-->
+    <div class="container-fluid" style="position:relative">
+        <div class="container" style="position:relative">
+            <div class="row mt-5">
+                {% for feature in features %}
+                <div class="col-md-4 col-lg-4 mt-5 ">
+                    <button type="button" style="background-color: #FFFFFF; border:none;">
+                        <img src="{{baseUrl}}/{{feature.img}}" class="img-fluid"></button>
+                    <h5 style="color:#db493c; margin-top:30px;">
+                        {{feature.name}}
+                    </h5><br/>
+                    <div style="font-family: poppins;color: #bbb;text-transform: uppercase;font-weight: 400;letter-spacing: 2px;">
+                        {{feature.det}}
+                    </div>
+                    <footer class="blockquote-footer">Restaurant<cite title="source-title">Express</cite>
+                    </footer>
+                </div>
+                {% endfor %}
+
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4" align="center">
-            <i style="color:#000000; font-size:48px;" class="fa fa-clock" aria-hidden="true"></i>
-            <h3 style="font-size: 22px; font-weight: 700;">OPENING TIME </h3>
-            <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
-                {{time.name}}</br>{{time.det}}</h6>
-        </div>
-        <div class="col-lg-4 col-md-4" align="center">
-            <i style="color:#000000; font-size:48px;" class="fa fa-clipboard" aria-hidden="true"></i>
-            <h3 style="font-size: 22px; font-weight: 700;">RESERVATION </h3>
-            <h6 align="center" style="font-family: poppins;color: #bbb; padding:0px;">{{reserv.name}} </br>
-                {{reserv.det}}</h6>
-        </div>
-
     </div>
-</div>
-</body>
-</html>
+    <!-- =========================== DETAILS CLOSE ===========================================================================-->
+
+
+
+    <!-- =========================== Our services ============================================================================-->
+    <div class="container-fluid">
+        <div style="position:relative">
+            <img src="{% static 'image/menu/work.jpg' %}" class="img-fluid">
+            <div style="position:absolute; top:10%;">
+                <img src="{% static 'image/menu/service.jpg' %}" class="img-fluid" height="40%" width="55%">
+                <button class="btn btn-danger " type="button"
+                        style="margin:25px; border-radius:23px; font-weight:650; font-size:20px;">Our Services
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- ============================ Our services layout close ================================================================-->
+
+
+
+    <!-- ================================ contact section layout =====================================================-->
+    <div class="container mt-5">
+        <div class="row" style="margin-top:100px;">
+            <div class="col-lg-4 col-md-4" align="center">
+                <i style="color:#000000; font-size:48px; " class="fa fa-map" aria-hidden="true"></i>
+                <h3 style="font-size: 22px; font-weight: 700;">LOCATION </h3>
+                <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
+                    {{location.name}}</br>{{location.det}}</h6>
+                <p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.893371596725!2d77.4958404100938!3d28.752600375497604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf47204fb9241%3A0xd11ed4123c7691fe!2sKIET%20GROUP%20OF%20INSTITUTIONS%2C%20Muradnagar%2C%20Uttar%20Pradesh%20201206!5e0!3m2!1sen!2sin!4v1690659276237!5m2!1sen!2sin"
+                            width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </iframe>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-4" align="center">
+                <i style="color:#000000; font-size:48px;" class="fa fa-clock" aria-hidden="true"></i>
+                <h3 style="font-size: 22px; font-weight: 700;">OPENING TIME </h3>
+                <h6 align="center" style="font-family: poppins;color: #bbb;text-transform: uppercase; padding:0px;">
+                    {{time.name}}</br>{{time.det}}</h6>
+            </div>
+            <div class="col-lg-4 col-md-4" align="center">
+                <i style="color:#000000; font-size:48px;" class="fa fa-clipboard" aria-hidden="true"></i>
+                <h3 style="font-size: 22px; font-weight: 700;">RESERVATION </h3>
+                <h6 align="center" style="font-family: poppins;color: #bbb; padding:0px;">{{reserv.name}} </br>
+                    {{reserv.det}}</h6>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
-
-
-<!--====================================================contact section layout close================================================================-->
 
