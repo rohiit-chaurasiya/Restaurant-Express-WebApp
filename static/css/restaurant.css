@@ -337,15 +337,14 @@ color:red;
 
 
 
-.padding
-{
-padding:60px;
+.padding{
+  padding:60px;
 }
-#parent
-{
-position:relative
-width:auto;
-height:auto;
+
+#parent{
+  position:relative;
+  width: auto;
+  height: auto;
 }
 
 .navbar .navbar-nav li
@@ -368,7 +367,7 @@ color:red;
 float:none;
 margin-top:0px;
 margin-bottom:0px;
-font-family:font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .sliderstyle{
