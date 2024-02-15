@@ -488,10 +488,6 @@ margin-top:20px;
 
  }
  @media (max-width: 574.98px) {
-      .col-3, .col-9 {
-        min-width: 100%;
-      }
-
       .container-fluid .show {
        margin-bottom: 1260px;
     }
@@ -749,3 +745,7 @@ position:relative
 }
 
 
+
+.footer_name {
+    margin-top: 25px;
+}
