@@ -70,25 +70,25 @@
         │   ├── style.css
         │   └── swiper-bundle.min.css
         └── image
-            ├── category
-            ├── chef
-            ├── det
-            ├── gallery
-            ├── LOGO
-            ├── slider
-            ├── user
-            └── menu
-                ├── breakfast
-                ├── burger
-                ├── desserts
-                ├── gulab_jamun
-                ├── noodles
-                ├── paratha
-                ├── pastry
-                ├── pizza
-                ├── poori
-                ├── pure_veg
-                └── salad
+        │   ├── category
+        │   ├── chef
+        │   ├── det
+        │   ├── gallery
+        │   ├── LOGO
+        │   ├── slider
+        │   ├── user
+        │    └── menu
+        └── js
+            ├── all.js
+            ├── all.min.js
+            ├── bootstrap.js
+            ├── bootstrap.min.js
+            ├── index.js
+            ├── jquery.js
+            ├── menu.js
+            ├── order.js
+            ├── script.js
+            └── swiper-bundle.min.js         
 ```
 
 
