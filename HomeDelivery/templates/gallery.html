@@ -1,34 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-{% static 'image' as baseUrl %}
-
-<!-------------------------------------------####------------------------------------------------------------>
-
-<!--============================================================= Gallery open==================================================-->
-<div style=" margin-top:100px">
-<div class="container gallery__new mt-5" style="margin-top:100px">
-
-  <div class="box">
-    <img src="{% static 'image/gallery/1.jpg' %}">
-    <span>1</span>
-  </div>
-  <div class="box">
-    <img src="{% static 'image/gallery/2.jpg' %}">
-    <span>2</span>
-  </div>
-  <div class="box">
-    <img src="{% static 'image/gallery/3.jpg' %}">
-    <span>3</span>
-  </div>
-  <div class="box">
-    <img src="{% static 'image/gallery/food.jpg' %}">
-    <span>4</span>
-  </div>
-</div>
+  {% load static %}
+  {% static 'image' as baseUrl %}
 
 
-
-</div><!-- container close -->
+  <!--============================================================= Gallery open==================================================-->
+  <div style=" margin-top:100px">
+    <div class="container gallery__new mt-5" style="margin-top:100px">
+      <div class="box">
+        <img src="{% static 'image/gallery/1.jpg' %}">
+        <span>1</span>
+      </div>
+      <div class="box">
+        <img src="{% static 'image/gallery/2.jpg' %}">
+        <span>2</span>
+      </div>
+      <div class="box">
+        <img src="{% static 'image/gallery/3.jpg' %}">
+        <span>3</span>
+      </div>
+      <div class="box">
+        <img src="{% static 'image/gallery/food.jpg' %}">
+        <span>4</span>
+      </div>
+    </div>
+  </div><!-- container close -->
 
 {% endblock %}

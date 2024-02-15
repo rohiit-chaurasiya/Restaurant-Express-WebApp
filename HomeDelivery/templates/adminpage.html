@@ -2,14 +2,16 @@
 {% block content %}
 {% load static %}
 {% static 'image' as baseUrl %}
+
 <!--===================================================================Navigation slider layout close ============================================ -->
 <div style="margin-top:80px;" align="center">
-<img src="{{baseUrl}}/{{adminimg.img}}" class="img-fluid">
+    <img src="{{baseUrl}}/{{adminimg.img}}" class="img-fluid">
     <h1 align="center" style="color:red; font-size:50px;">Admin</h1>
 </div>
 
 <div align="center">
-<button class="btn" type="button" style=" margin-top:60px; border-radius:50px; font-weight:700; font-size:40px; background-color:blue;">
+    <button class="btn" type="button" style=" margin-top:60px; border-radius:50px; font-weight:700; font-size:40px; background-color:blue;">
         <a href="{% url 'administrative' %}" style="color:#ffffff;text-decoration: none;">Administrative Login</a></button>
 </div>
+
 {% endblock %}

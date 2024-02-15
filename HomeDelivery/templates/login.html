@@ -5,40 +5,40 @@
 
 
 <div  class="container-fluid login__page img-fluid" style="position:relative;  background:url({% static 'image/about.jpg' %}); height:100%;width:100%">
-<div class="container mt-5" style="position:relative;">
-	<form action="check"  method="post">
-        <div>
-        {% csrf_token %}
-            <div class="row">
-        <div class=" col-12 col-sm-8 col-lg-5 col-md-6 mt-5">
-<!--            <h1></h1>-->
-            <h1 style="margin-top:15px"></h1>
-            <h1 align="center" style="color:black; font-size:50px;margin-top:5px"><strong>Welcome</strong></h1>
-            <h6 class="mb-4" align="center">Enter your Username and Password</h6>
-        </div>
+    <div class="container mt-5" style="position:relative;">
+        <form action="check"  method="post">
+            <div>
+                {% csrf_token %}
+                <div class="row">
+                    <div class=" col-12 col-sm-8 col-lg-5 col-md-6 mt-5">
+                        <h1 style="margin-top:15px"></h1>
+                        <h1 align="center" style="color:black; font-size:50px;margin-top:5px"><strong>Welcome</strong></h1>
+                        <h6 class="mb-4" align="center">Enter your Username and Password</h6>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
+                        <label for="username"><b>USERNAME</b></label>
+                        <input  type="text" class="form-control" id="username" name="username" placeholder="@Username" onkeyup="usernameonly(this)" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
+                        <label for="pass1"><b>PASSWORD</b></label>
+                        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="form-row mt-2 mb-5">
+                    <div class="form-group col-12 col-sm-8 col-lg-5 col-md-6 mb-5" align="center">
+                        <button class="btn btn-lg btn-block" type="submit" id="submit" style="background-color:#fc8019;border-radius:10px;font-weight:600; font-size:24px; color:#ffffff;padding-top:3px">Login Now</button>
+                        <p class="mt-4">Don’t have an account yet? <a href="{% url 'add' %}" style="color:#563d7c">
+                            <b>Create Account</b></a>
+                        </p>
+                    </div>
+                </div>
             </div>
-    <div class="form-row">
-    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
-        <label for="username"><b>USERNAME</b></label>
-        <input  type="text" class="form-control" id="username" name="username" placeholder="@Username" onkeyup="usernameonly(this)" required>
-        </div>
-        </div>
-    <div class="form-row">
-    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" >
-        <label for="pass1"><b>PASSWORD</b></label>
-        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password" required>
-        </div>
-    </div>
-    <div class="form-row mt-2">
-    	<div class="form-group col-12 col-sm-8 col-lg-5 col-md-6" align="center">
-            <!--<button type="submit" class="btn btn-block alert-primary" id="submit"><a>Login</a></button>-->
-            <button class="btn btn-lg btn-block" type="submit" id="submit" style="background-color:#fc8019;border-radius:10px;font-weight:600; font-size:24px; color:#ffffff;padding-top:3px">Login Now</button>
-                <p class="mt-4">Don’t have an account yet? <a href="{% url 'add' %}" style="color:#563d7c"><b>Create Account</b></a></p>
-        </div>
-    </div>
-        </div>
-	</form>
-</div><!-- second container close -->
+        </form>
+    </div><!-- second container close -->
 </div>
 
 

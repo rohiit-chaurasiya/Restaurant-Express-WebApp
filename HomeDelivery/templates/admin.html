@@ -4,29 +4,29 @@
 {% static 'image' as baseUrl %}
 <!--===================================================================Navigation slider layout close ============================================ -->
 <div style="position:relative; background:url({% static 'image/chef/pattern.png' %}); margin-top:100px;">
-<div class="container" style="position:relative;" >
-	<form action="checkadmin"  method="post" style="position:relative">
-        {% csrf_token %}
-    <h1 align="center" class="alert-danger" style="color:#FF0000; font-size:50px; font-family:Forte;">Log In</h1>
-    <div class="form-row">
-    	<div class="form-group col-md-6">
-        <label for="username">User Name</label>
-        <input  type="text" class="form-control" id="username" name="username">
-        </div>
-        </div>
-    <div class="form-row">
-    	<div class="form-group col-md-6">
-        <label for="pass1">Password</label>
-        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
-        </div>
-    </div>
-    <div class="form-row mt-5">
-    	<div class="form-group col-md-6">
-            <button type="submit" class="btn btn-block alert-primary" id="submit"><a>Login</a></button>
-        </div>
-    </div>
-	</form>
-</div><!-- second container close -->
+    <div class="container" style="position:relative;">
+        <form action="checkadmin"  method="post" style="position:relative">
+            {% csrf_token %}
+            <h1 align="center" class="alert-danger" style="color:#FF0000; font-size:50px; font-family:Forte;">Log In</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="username">User Name</label>
+                    <input  type="text" class="form-control" id="username" name="username">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="pass1">Password</label>
+                    <input type="password" class="form-control" name="pass1" id="pass1" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-row mt-5">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-block alert-primary" id="submit"><a>Login</a></button>
+                </div>
+            </div>
+        </form>
+    </div><!-- second container close -->
 </div>
 
 <!-- ==================================================== contact section layout close  ===========================================================-->

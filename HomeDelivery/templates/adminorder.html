@@ -1,75 +1,115 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-{% static 'image' as baseUrl %}
+    {% load static %}
+    {% static 'image' as baseUrl %}
 
 
-<div  style="position:relative;margin-top:90px;height:auto;width:auto;" align="center">
-    <h1 align="center" style="color:#1abc9c; font-size:50px; font-family:Forte;">User Order List</h1>
-    {% if adminorders %}
-    <div class="row " align="center">
-    <div class="col-sm-12">
-    <table class="table table-info border">
-        <thead>
-        <tr class="table-danger">
-            <th scope="col">&nbsp;</th>
-            <th scope="col">User Name</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-            <th scope="col">&nbsp;</th>
-            <th scope="col">Payment</th>
-            <th scope="col">Option</th>
-            <th scope="col">Delivery Status</th>
+<div style="position:relative; margin-top:90px; height:auto; width:auto" align="center">
+    <div class="container-fluid">
+        <div>
+            <h1 align="center" style="color:#1abc9c; font-size:40px; font-family:Forte;">User Order List</h1>
+        </div>
+        {% if adminorders %}
+        <div class="row justify-content-md-center">
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C; font-weight:500; font-size:10px">User Name</h6>
+            </div>
 
-        </tr>
-        </thead>
-        <tbody>
-            {% for oitem in userorders %}
-            <tr>
-            <form action="cancel" method="post">
-                {% csrf_token %}
-            <td>&nbsp;</td>
-            <td scope="row">{{oitem.username}}</td>
-            <td>{{oitem.item_name}}</td>
-            <td>{{oitem.qty}}</td>
-            <td>{{oitem.price}}</td>
-                <td> </td>
-            <td>{{oitem.payment}}</td>
-                <input name="item_id" type="hidden" value="{{oitem.id}}" class="hidden" required>
-                <td><button class="btn btn-outline-warning " type="submit" style="border-radius:20px; font-weight: 500; font-size:16px;
-                color:#ffffff">Itam Cancel</button></td>
+<!--                        <div class="col-3 col-lg-3 col-md-3">-->
+<!--                            <h6 style="color:#1C1C1C; margin-top:20px;font-weight:500;">Item Name</h6>-->
+<!--                        </div>-->
 
-            </form>
+<!--                        <div class="col-1 col-lg-1 col-md-1">-->
+<!--                            <h6 style="color:#1C1C1C; margin-top:20px;font-weight:500; font-size:10px">Qty.</h6>-->
+<!--                        </div>-->
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C;font-weight:500; font-size:10px">Price</h6>
+            </div>
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C;font-weight:500; font-size:10px">Payment</h6>
+            </div>
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C;font-weight:500; font-size:10px">Status</h6>
+            </div>
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C;font-weight:500; font-size:10px"></h6>
+            </div>
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C;font-weight:500; font-size:10px"></h6>
+            </div>
+        </div>
+        <hr style="margin:0px 0px 15px 0px">
+
+        {% for item in userorders %}
+        <din class="row">
+            <div class="col-2 col-lg-2 col-md-2 justify-content-md-center">
+                <h6 style="color:#1C1C1C; font-size:10px">{{item.username}}</h6>
+            </div>
+
+<!--                        <div class="col-3 col-lg-3 col-md-3" style="display:flex; justify-content: space-between; align-items: center;">-->
+<!--                            <h6 style="color:#1C1C1C; margin-top:20px;font-weight:500;">{{item.item_name}}</h6>-->
+<!--                        </div>-->
+<!--                        <div class="col-1 col-lg-1 col-md-1">-->
+<!--                            <h6 style="color:#1C1C1C; font-size:10px">₹{{item.qty}}</h6>-->
+<!--                        </div>-->
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C; font-size:10px">₹{{item.price}}</h6>
+            </div>
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C; font-size:10px">{{item.payment}}</h6>
+            </div>
+            <div class="col-2 col-lg-2 col-md-2">
+                <h6 style="color:#1C1C1C; font-size:10px">{{item.status}}</h6>
+            </div>
+
+            <div class="col-2 col-lg-2 col-md-2">
+                <form action="cancel" method="post">
+                    {% csrf_token %}
+                    <div style="display:none">
+                        <td type="hidden" style="display:none">&nbsp;</td>
+                    <td type="hidden" class="hidden" scope="row" style="display:none">{{item.username}}</td>
+                    <td style="display:none">{{item.item_name}}</td>
+                    <td style="display:none">{{item.qty}}</td>
+                    <td style="display:none">{{item.price}}</td>
+                    <td style="display:none"> </td>
+                    <td style="display:none">{{item.payment}}</td>
+                    </div>
+
+                    <input name="item_id" type="hidden" value="{{item.id}}" class="hidden" style="display:none" required>
+                    <button class="btn btn-danger " type="submit" style="font-weight: 500; font-size:10px;
+                    color:#ffffff; padding:1px 5px">Cancel</button>
+                </form>
+            </div>
+
+
+            <div class="col-2 col-lg-2 col-md-2">
                 <form action="admindelivered" method="post">
                     {% csrf_token %}
-                    <input name="item_id" type="hidden" value="{{oitem.id}}" class="hidden" required>
-                    <input name="username" type="hidden" value="{{oitem.username}}" class="hidden" required>
-                    <input name="itemname" type="hidden" value="{{oitem.item_name}}" class="hidden" required>
-                    <input name="qty" type="hidden" value="{{oitem.qty}}" class="hidden" required>
-                    <input name="price" type="hidden" value="{{oitem.price}}" class="hidden" required>
-                    <input name="payment" type="hidden" value="{{oitem.payment}}" class="hidden" required>
-
-                  <td><button class="btn btn-success" type="submit" style="border-radius:20px; font-weight: 500; font-size:16px;
-                color:#ffffff">Itam Delivered</button></td>
+                    <input name="item_id" type="hidden" value="{{item.id}}" class="hidden" required>
+                    <input name="username" type="hidden" value="{{item.username}}" class="hidden" required>
+                    <input name="itemname" type="hidden" value="{{item.item_name}}" class="hidden" required>
+                    <input name="qty" type="hidden" value="{{item.qty}}" class="hidden" required>
+                    <input name="price" type="hidden" value="{{item.price}}" class="hidden" required>
+                    <input name="payment" type="hidden" value="{{item.payment}}" class="hidden" required>
+                    <button class="btn btn-danger " type="submit" style="font-weight: 500; font-size:10px;
+                    color:#ffffff; padding:1px 5px">Send</button>
                 </form>
-        </tr>
+            </div>
+        </din>
         {% endfor %}
-        </tbody>
-    </table>
-    </div>
-    </div>
-</div>
-<div align="center">
-    <button class="btn btn-danger " type="button" style=" margin-top:60px;border-radius:30px;font-weight: 700; font-size:25px;">
-        <a href="{% url 'orderconfirm' %}" style="color:#ffffff;text-decoration: none;">Save</a></button>
-</div>
-{% else %}
-<div style="margin-top:0px;" align="center">
-<img src="{{baseUrl}}/{{adminempty.img}}" class="img-fluid">
-    <h1 align="center" style="color:red; font-size:50px;">User Orders Emapty!</h1>
-    {% endif %}
-</div>
+        {% else %}
+        <div style="margin-top:0px;" align="center">
+            <img src="{{baseUrl}}/{{adminempty.img}}" class="img-fluid">
+            <h1 align="center" style="color:red; font-size:50px;">User Orders Emapty!</h1>
+        </div>
+        {% endif %}
 
+    </div>
+</div>
 
 {% endblock %}
