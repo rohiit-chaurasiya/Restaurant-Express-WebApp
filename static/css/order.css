@@ -1,0 +1,9 @@
+.order_list_show{
+    padding:50px;
+}
+
+@media screen and (max-width: 768px) {
+  .order_list_show{
+    padding:14px;
+}
+}
