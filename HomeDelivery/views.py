@@ -1313,9 +1313,9 @@ def add(request):
     webds = [webd1, webd2]
     if request.method=='POST':
         username = request.POST["username"]
-        name = request.POST["name"]
+        # name = request.POST["name"]
         email = request.POST["email"]
-        phone = request.POST["phone"]
+        # phone = request.POST["phone"]
         pass1 = request.POST["pass1"]
         pass2 = request.POST["pass2"]
         # dob = request.POST["dob"]
@@ -1327,10 +1327,10 @@ def add(request):
                 return render(request, 'register.html', {'namerror':"User Name Already Exist Please try another userName",'webd': webd, 'webds': webds,'logor':logor})
             elif new_user.objects.filter(email=email).exists():
                 return render(request, 'register.html', {'mailerror':"Eamil has already registerd",'webd': webd, 'webds': webds,'logor':logor})
-            elif new_user.objects.filter(phone=phone).exists():
-                return render(request, 'register.html', {'phoneerror':"Phone No has already registerd",'webd': webd, 'webds': webds,'logor':logor})
+            # elif new_user.objects.filter(phone=phone).exists():
+            #     return render(request, 'register.html', {'phoneerror':"Phone No has already registerd",'webd': webd, 'webds': webds,'logor':logor})
             else:
-                newinfo = new_user(username=username, name=name, email=email, phone=phone, pass1=pass1, pass2=pass2,
+                newinfo = new_user(username=username, email=email, pass1=pass1, pass2=pass2,
                            )
                 new_user.user = request.user
                 newinfo.save()
@@ -1596,6 +1596,7 @@ def finalorderplace(request):
 
 def admin(request):
     global adminimg
+
     admin="Administrative"
     adminimg = adminloginpage()
     adminimg.img = 'admin.png'
@@ -1624,7 +1625,7 @@ def checkadmin(request):
             print(fadminname)
             print("success1")
             userorders = []
-            for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
+            for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders where status="Processing..." '):
                 x = p
                 userorders.append(x)
             if userorders == []:
@@ -1644,18 +1645,22 @@ def checkadmin(request):
 
 def cancel(request):
     global otherpage,adminorders
+    print("cancel Page")
     nameul = request.POST.get("item_id")
+
     webd = [awebd]
     webds = [webd1, webd2]
-    print("start user")
+
+    print(nameul)
     if request.method == 'POST':
         usercart = user_orders.objects.filter(id=nameul).delete()
         user_orders.user = request.user
         print(nameul)
         userorders = []
-        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
+        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders where status="Processing..."'):
             x = p
             userorders.append(x)
+        print(userorders)
         if userorders == []:
             print("Blank")
             return render(request, 'adminorder.html',
@@ -1690,7 +1695,7 @@ def admindelivered(request):
         userorders = []
 
 
-        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders'):
+        for p in user_orders.objects.raw('SELECT * FROM restaurants.homedelivery_user_orders where status="Processing..."'):
             x = p
             userorders.append(x)
         if userorders == []:
