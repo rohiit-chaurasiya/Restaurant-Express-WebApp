@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-
 {% block content %}
-{% load static %}
-{% static "image" as baseUrl %}
+    {% load static %}
+    {% static "image" as baseUrl %}
+
+<!-- JavaScript -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!--===================================================================Header================================================ -->
 <div class="container-fluid hmImage mt-2"
@@ -23,19 +24,16 @@
         <div class="col-8 col-lg-6 col-md-6">
             <h4 class="menu__slider text-dark" style="font-weight: 650; padding:0px;">What's on your mind?</h4>
         </div>
-
         <div class="slide-container swiper col-4 col-lg-4 col-md-4">
-                <div class="next">
-                    <i class="fa fa-arrow-circle-right float-right mx-3" style="font-size: 30px;"></i>
-                </div>
-                <div class="prev">
-                    <i class="fa fa-arrow-circle-left float-right" style="font-size: 30px;" ></i>
-                </div>
+            <div class="next">
+                <i class="fa fa-arrow-circle-right float-right mx-3" style="font-size: 30px;"></i>
+            </div>
+            <div class="prev">
+                <i class="fa fa-arrow-circle-left float-right" style="font-size: 30px;" ></i>
+            </div>
         </div>
-
     </div>
 </div>
-
 
 
 <!-----------------------------------slider menu category list---------------------------------------->
@@ -47,7 +45,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Paratha' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Paratha.png' %}" alt="" ></a> </button>
+                            <img src="{% static 'image/category/Paratha.png' %}" alt="Paratha" ></a> </button>
                     </div>
                 </div>
             </div>
@@ -56,7 +54,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Poori' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Poori.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Poori.png' %}" alt="Poori"></a> </button>
                     </div>
                 </div>
             </div>
@@ -65,7 +63,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Pure_Veg' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Pure_Veg.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Pure_Veg.png' %}" alt="Pure Veg"></a> </button>
                     </div>
                 </div>
             </div>
@@ -74,7 +72,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Burger' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/burger.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/burger.png' %}" alt="Burger"></a> </button>
                     </div>
                 </div>
             </div>
@@ -83,7 +81,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Noodles' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Noodles.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Noodles.png' %}" alt="Noodles"></a> </button>
                     </div>
                 </div>
             </div>
@@ -92,7 +90,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Pizza' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Pizza.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Pizza.png' %}" alt="Pizza"></a> </button>
                     </div>
                 </div>
             </div>
@@ -101,7 +99,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Gulab_Jamun' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Gulab_Jamun.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Gulab_Jamun.png' %}" alt="Gulab Jamun"></a> </button>
                     </div>
                 </div>
             </div>
@@ -110,7 +108,7 @@
                 <div class="image-content">
                     <div class="card-image">
                         <button  class="button" style="border:none;"><a href="{% url 'Pastry' %}" style="color:#f8f88f">
-                            <img src="{% static 'image/category/Pastry.png' %}" alt=""></a> </button>
+                            <img src="{% static 'image/category/Pastry.png' %}" alt="Pastry"></a> </button>
                     </div>
                 </div>
             </div>
@@ -118,7 +116,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!--============================================================= Offer Display ===============================================================-->
@@ -139,13 +136,11 @@
 
 
 <!--======================================= menu category name show ===================================================== -->
-
 {% if listname %}
 <div align="center">
     <h1><strong>{{listname}}</strong></h1>
 </div>
 {% endif %}
-
 
 <!--=========================================menu items show===============================================================-->
 <div class="container" style="background-color: #EBEBEB;">
@@ -184,50 +179,6 @@
 <!-- container close -->
 
 <!--====================================================================Menu close =============================================-->
-
-
-
-
-<!--    <script src="{% static 'js/script.js' %}"></script>-->
-
-<!-- JavaScript -->
-<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
-<script>
-        var swiper = new Swiper(".slide-content", {
-        slidesPerView: 5,
-        spaceBetween: 15,
-        loop: true,
-        centerSlide: 'true',
-        fade: 'true',
-        grabCursor: 'true',
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          dynamicBullets: true,
-        },
-        navigation: {
-          nextEl: ".next",
-          prevEl: ".prev",
-        },
-
-        breakpoints:{
-            0: {
-                slidesPerView: 1,
-            },
-            294: {
-                slidesPerView: 2,
-            },
-            588: {
-                slidesPerView: 3,
-            },
-            882: {
-                slidesPerView: 4,
-            },
-            1176: {
-                slidesPerView: 5,
-            },
-        },
-      });
-</script>
-
+<script src="{% static 'js/swiper-bundle.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/menu.js' %}" type="text/javascript"> </script>
 {% endblock %}
