@@ -92,10 +92,6 @@
 ```
 
 
-
-
-
-
 ## Follow the steps below to set up and install the project dependencies:
 
 Clone this repository:
